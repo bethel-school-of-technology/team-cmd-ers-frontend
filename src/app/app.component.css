@@ -1,3 +1,21 @@
 #footer {
     background-color: #640058;
 }
+
+#navbarNav {
+    margin-left: 20%;
+}
+
+.nav-linkVerse {
+    font-size: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-right: 30px;
+    color: azure;
+    font-size: 15px;
+}
+
+.navbar-brand {
+    color: azure;
+    margin-left: 30px;
+    font-size: 10px;
+}
