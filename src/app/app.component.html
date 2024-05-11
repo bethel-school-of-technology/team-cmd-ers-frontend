@@ -1,3 +1,4 @@
+<!-- conditional statement to display certain fields if user logged in or not -->
 <nav class="navbar navbar-expand-lg"  data-bs-theme="dark"  style="background-color: #640058;">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
@@ -26,13 +27,17 @@
   </div>
 </nav>
 
-<nav id="footer" class="navbar fixed-bottom">
+
+<router-outlet></router-outlet>
+
+<!-- class="navbar fixed-bottom" -->
+<footer id="footer" class="navbar fixed-bottom">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">CREATED BY Ryan Dorrell, Jonathan Ford & Jordan Boller</a>
   </div>
-</nav>
+</footer>
 
 
-<router-outlet></router-outlet>
+
 
 

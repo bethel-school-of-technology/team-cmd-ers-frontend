@@ -1,0 +1,40 @@
+.heading {
+    text-align: center;
+    color: #1c0118;
+}
+
+.about_content {
+    margin: 20px 5%;
+}
+
+
+nav {
+    background-color: #715fcd;
+    list-style-type: none;
+    margin-left: 10%;
+    padding: 0;
+    width: 30%;
+    min-height: 150px;
+    float:left;
+}
+article {
+    background-color: #619fa5 ;
+    float: left;
+    padding:20px;
+    width: 50%;
+    min-height: 150px;
+}
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#goal_table {
+    margin: 10px 10%;
+    border: 3px solid #640058;
+    width: 80%;
+}
+
+td, th {
+    padding: 2px 10px;
+}
