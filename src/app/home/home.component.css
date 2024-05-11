@@ -6,20 +6,12 @@
    
 }
 
-.card2 {
-    margin-top: 80px;
-    margin-left: 1260px;
-    color: #640058;
-    margin-right: 30px;
-   
-   
-}
 
 
 
 .card-body1 {
     color: #640058;
-    /* margin-top: 70px; */
+   
     padding-bottom: 250px;
     margin-left: 45px;
 }
@@ -38,6 +30,6 @@
 }
 
 .homePG {
-    border-radius: solid, purple, 8px;
+    border-radius: solid;
 }
 
