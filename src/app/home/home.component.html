@@ -7,17 +7,30 @@
         <form>
             <h2>Sign In</h2>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
 
-            <button type="button" class="btn btn-info">Sign In</button>
+            <button routerLink="/dashboard" onClick="validateForm()" type="submit"type="button" class="btn btn-info">Sign In</button>
         </form>
+        <script>
+            function validateForm() {
+                var username = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+        
+                if (email === "" || password === "") {
+                    document.getElementById("errorMessage").innerHTML = "Please enter both username and password.";
+                    return false;
+                }
+              
+                return true;
+            }
+        </script>
     </div>
 
     <div class="homeText">
@@ -43,3 +56,17 @@
 
     </div>
 </div>
+
+<!-- <script>
+    function validateForm() {
+        var username = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        if (email === "" || password === "") {
+            document.getElementById("errorMessage").innerHTML = "Please enter both username and password.";
+            return false;
+        }
+      
+        return true;
+    }
+</script> -->
