@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateGoalComponent } from './create-goal/create-goal.component';
+import { GoalDetailComponent } from './goal-detail/goal-detail.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomeComponent,
     AboutComponent,
     SignUpComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateGoalComponent,
+    GoalDetailComponent
   ],
   imports: [
     BrowserModule,
