@@ -2,7 +2,17 @@
 <!-- <h1>Hello {{user.name}}</h1> -->
 <h1 class="dash-greeting">Hello</h1>
 
-<br><br><br><br>
+<br><br><br><br>s
+
+<!-- adding this area for testing purposes -->
+<h3>List of User Goals</h3>
+<div *ngFor = "let goal of userGoals">
+    <p>{{goal.name}}, {{goal.type}}, {{goal.description}}, {{goal.goalToReach}}, {{goal.progress}} </p>
+    
+</div>
+
+
+<br><br>
 <div class="card" style="width: 60rem; height: 20rem;">
     <!-- <i class="bi bi-x-lg"></i> -->
 
