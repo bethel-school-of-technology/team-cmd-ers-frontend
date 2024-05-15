@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
