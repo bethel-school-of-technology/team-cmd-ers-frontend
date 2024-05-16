@@ -16,6 +16,16 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  calcProgress(uGoal:Goal){
+    console.log(uGoal);
+    let prog: number = uGoal.userProgress!=undefined ? uGoal.userProgress : 0 ;
+    let max: number = uGoal.goalToReach!=undefined ? uGoal.goalToReach : 1;
+    console.log(prog, max);
+    let ratio = prog / max;
+    return ratio*100;
+
+  }
+
   ngOnInit(): void{
     this.goalService.getAllGoals().subscribe(response => {
       console.log(response);
