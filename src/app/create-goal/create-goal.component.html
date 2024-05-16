@@ -1,1 +1,40 @@
-<p>create-goal works!</p>
+<br><br>
+
+<h1 class="goalHead">Goal Creation</h1>
+
+<br>
+
+<div class="card" style="width: 60rem; height: 32rem;">
+
+    <div class="Creation-Input">
+        <div class="form-floating mb-3">
+            <input type="goal-name" class="form-control" id="floatingInput" placeholder="">
+            <label for="floatingInput">Goal Name</label>
+        </div>
+        <br>
+        
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Choose Goal Type</option>
+            <option value="1">Weight Loss</option>
+            <option value="2">Lean and Fit</option>
+            <option value="3">Muscle Bulk</option>
+        </select>
+        <br>
+        
+
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                style="height: 100px"></textarea>
+            <label for="floatingTextarea2">Goal Description</label>
+        </div>
+        <br>
+        
+        <div class="form-floating">
+            <input type="goal" class="form-control" id="floatingGoal" placeholder="">
+            <label for="floatingGoal">Goal</label>
+        </div>
+    </div>
+    
+
+</div>
+<button class="newGoalCreate" routerLink="/dashboard">Create Goal</button>
