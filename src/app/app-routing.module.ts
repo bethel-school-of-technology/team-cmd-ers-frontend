@@ -11,9 +11,11 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
   { path: "signup", component: SignUpComponent },
-  { path: "dashboard/:userId", component: DashboardComponent},
+  { path: "dashboard", component: DashboardComponent},
+  // { path: "dashboard/:userId", component: DashboardComponent}, // modified for testing on 5.15.24
   { path: "create-goal/:userId", component: CreateGoalComponent},
-  { path: "goal-detail/:goalId", component: GoalDetailComponent}
+  { path: "goal-detail/:goalId", component: GoalDetailComponent},
+  { path: "", redirectTo: "home", pathMatch:"full"}
 ]
 ;
 
