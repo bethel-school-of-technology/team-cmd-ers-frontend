@@ -1,0 +1,20 @@
+.goalHead {
+    text-align: center;
+    color: #640058;
+}
+.card {
+    margin-left: 260px;
+    color: #640058;
+}
+.Creation-Input {
+    margin: 35px;
+    padding: 35px;
+    color: #640058;
+}
+
+.newGoalCreate {
+    margin-left: 690px;
+    width: 100px;
+    height: 40px;
+    color: #640058;
+}
