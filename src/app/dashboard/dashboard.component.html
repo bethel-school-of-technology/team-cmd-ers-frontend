@@ -5,7 +5,7 @@
 <br><br><br><br>
 <div class="card" style="width: 60rem; height: 20rem;">
     <!-- <i class="bi bi-x-lg"></i> -->
-
+    <button type="button" id="exit" class="btn-close" aria-label="Close"></button>
     <div class="card-body">
         <h1>My Goal</h1>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
@@ -13,5 +13,5 @@
     </div>
    
 </div>
-<button class="goal-details-btn">My Goal Details</button>
-<button class="new-btn">Create New Goal</button>
+<button routerLink="/goal-detail/:goalId" class="goal-details-btn">My Goal Details</button>
+<button routerLink="/create-goal/:userId" class="new-btn">Create New Goal</button>
