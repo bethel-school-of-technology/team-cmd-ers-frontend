@@ -11,7 +11,7 @@
     <p>{{goal.name}}, {{goal.type}}, {{goal.description}}, {{goal.goalToReach}}, {{goal.userProgress}} </p>
     
 </div> -->
-
+<button class="new-btn" routerLink="/create-goal">Add a New Goal</button>
 
 <br><br>
 <div *ngFor="let g of userGoals">
@@ -20,15 +20,23 @@
 
         <div class="card-body">
             <h1>My Goal: {{g.name}}</h1>
+            <h4>goal Id: {{g.id}}</h4>
             <p class="card-text">{{g.description}}</p>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
-            <h2>Progress: {{calcProgress(g)}}%</h2>
+            <h2>Progress:   {{calcProgress(g)}}%</h2>
             <!-- <h2>Progress: {{g.progress/g.goalToReach}}%</h2> -->
         </div>
-        <button class="goal-details-btn" routerLink="/goal-detail/{{g.goalId}}">My Goal Details</button>
-    
+       
+        <div class="row">
+            <div class="col">
+            <button class="goal-details-btn" routerLink="goal-detail/{{g.id}}">My Goal Details</button>
+            </div>
+            <div class="col">
+            <button class="delete-btn" (click)="deleteGoal(g.id)">Delete Goal</button>
+            </div>
+        </div>
+       
     </div>
 </div>
 
-<button class="new-btn">Create New Goal</button>

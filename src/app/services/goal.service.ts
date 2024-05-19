@@ -28,7 +28,7 @@ export class GoalService {
   }
 
   //delete a goal
-  deleteGoal(deleteId: number):Observable<any>{
+  deleteGoal(deleteId?: number):Observable<any>{
     return this.http.delete<any>(`${this.goalUrl}/${deleteId}`);
   }
 

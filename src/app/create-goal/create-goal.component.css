@@ -3,18 +3,24 @@
     color: #640058;
 }
 .card {
-    margin-left: 260px;
+    margin: 20px auto;
     color: #640058;
+    width: 50rem; 
+    height: 32rem;
 }
 .Creation-Input {
-    margin: 35px;
+    /* margin: 15px; */
     padding: 35px;
     color: #640058;
 }
 
-.newGoalCreate {
-    margin-left: 690px;
+.newGoalCreate  {
+    margin-left: 85%;
     width: 100px;
     height: 40px;
     color: #640058;
+}
+
+.back {
+    margin-left: 70%;
 }

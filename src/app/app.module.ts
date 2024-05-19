@@ -10,6 +10,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateGoalComponent } from './create-goal/create-goal.component';
 import { GoalDetailComponent } from './goal-detail/goal-detail.component';
+import { FormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -20,12 +23,16 @@ import { GoalDetailComponent } from './goal-detail/goal-detail.component';
     SignUpComponent,
     DashboardComponent,
     CreateGoalComponent,
-    GoalDetailComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NoopAnimationsModule,
+    GoalDetailComponent,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
