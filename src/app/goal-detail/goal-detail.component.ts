@@ -4,7 +4,7 @@ import { Goal } from '../models/goal';
 import { GoalService } from '../services/goal.service';
 import { MatDialog} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-import { MatDialogRef } from '@angular/material/dialog';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 
 
 @Component({
@@ -25,7 +25,7 @@ export class GoalDetailComponent {
   constructor(private activeRoute:ActivatedRoute, private goalService: GoalService, public dialog:MatDialog) {}
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(EditDialog, {
+    this.dialog.open(EditDialogComponent, {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
@@ -54,12 +54,8 @@ export class GoalDetailComponent {
     });
   }
 
- 
+}
 
-}
-export class EditDialog {
-  constructor(public dialogRef: MatDialogRef<EditDialog>) {}
-}
 
 
 // $('#myModal').modal(options)

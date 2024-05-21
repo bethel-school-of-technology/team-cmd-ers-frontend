@@ -13,6 +13,11 @@ import { GoalDetailComponent } from './goal-detail/goal-detail.component';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatLabel } from '@angular/material/form-field';
+
+// 
 
 
 @NgModule({
@@ -23,7 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     SignUpComponent,
     DashboardComponent,
     CreateGoalComponent,
-    
+    EditDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +37,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     NoopAnimationsModule,
     GoalDetailComponent,
-    MatDialogModule
+    MatDialogModule,    
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
