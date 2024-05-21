@@ -1,0 +1,25 @@
+<div id="profile">
+    <header id="profileName">--user.firstName user.lastName--</header>
+    <nav class="profileTabs js-nav" >
+        <ul>
+            <li class="tabItems" >profile info</li>
+            <li class="tabItems" routerLink="/dashboard">dashboard</li>
+            <li class="tabItems" (click)="stats()">stats</li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <h2 class="main-content header">About You</h2>
+        <form class="main-content">
+            <label>First Name</label>
+            <input type="text" ng-Model="user.firstName">
+            <label>Last Name</label>
+            <input type="text" ng-Model="lastName">
+            <label> Username | Email</label>
+            <input type="email" ng-model="user.email">
+            <label>Password</label>
+            <input type="password" ng-Model="user.password">
+            <br>
+            <button class="main-content">Save</button>
+        </form>
+    </div>
+</div>
