@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: "signup", component: SignUpComponent },
   { path: "dashboard", component: DashboardComponent},
   // { path: "dashboard/:userId", component: DashboardComponent}, // modified for testing on 5.15.24
-  { path: "create-goal/:userId", component: CreateGoalComponent},
+  { path: "create-goal", component: CreateGoalComponent},
+  // { path: "create-goal/:userId", component: CreateGoalComponent},
   { path: "goal-detail/:goalId", component: GoalDetailComponent},
   { path: "user-profile", component: UserProfileComponent},
   // { path: "user-profile/:userId", component: UserProfileComponent}, //modfied fro testing on 5.21.24
