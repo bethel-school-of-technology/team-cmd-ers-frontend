@@ -29,7 +29,7 @@ import { MatLabel } from '@angular/material/form-field';
     SignUpComponent,
     DashboardComponent,
     CreateGoalComponent,
-    EditDialogComponent,,
+    EditDialogComponent,
     UserProfileComponent
   ],
   imports: [
