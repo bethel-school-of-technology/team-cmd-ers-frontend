@@ -36,10 +36,15 @@ ul{
     margin-left: 70%;
     color: #640058;
 }
+/* .delete-btn {
+    width: 200px;
+    color: #640058;
+} */
+
 .dash-greeting {
-    margin-left: 80px;
+    margin-left: 10%;
     color: #640058;
 }
-#exit {
+/* #exit {
     margin-left: 97.5%;
-}
+} */

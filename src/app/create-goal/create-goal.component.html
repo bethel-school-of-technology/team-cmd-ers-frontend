@@ -1,40 +1,47 @@
-<br><br>
-
-<h1 class="goalHead">Goal Creation</h1>
-
 <br>
+<button class="back" routerLink="/dashboard">Back to Dashboard</button>
+<h1 class="goalHead">Add a New Goal</h1>
 
-<div class="card" style="width: 60rem; height: 32rem;">
 
-    <div class="Creation-Input">
+<form #goalForm="ngForm" (ngSubmit)="createNewGoal(goalForm.value)" class="card form-group" >
+
+    <div class="Creation-Input form-group">
         <div class="form-floating mb-3">
-            <input type="goal-name" class="form-control" id="floatingInput" placeholder="">
+            <input type="goal-name" name="name" class="form-control" id="floatingInput" placeholder="name your goal" ngModel>
             <label for="floatingInput">Goal Name</label>
         </div>
-        <br>
         
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Choose Goal Type</option>
-            <option value="1">Weight Loss</option>
-            <option value="2">Lean and Fit</option>
-            <option value="3">Muscle Bulk</option>
-        </select>
-        <br>
+        <div class="form-group">        
+            <select class="form-select" aria-label="Default select example" name="type" ngModel>
+                <option value="1">Weight Loss</option>
+                <option value="2">Lean and Fit</option>
+                <option value="3">Muscle Bulk</option>
+            </select>
+            <label for="type">Choose Goal Type</label>
+        </div>
+            <br>
         
 
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                style="height: 100px"></textarea>
+        <div class="form-floating form-group">        
+            <textarea class="form-control" placeholder="Leave a goal description here" id="floatingTextarea2"
+                style="height: 100px" type="text" name="description" ngModel></textarea>
             <label for="floatingTextarea2">Goal Description</label>
         </div>
         <br>
         
-        <div class="form-floating">
-            <input type="goal" class="form-control" id="floatingGoal" placeholder="">
+        <div class="form-floating form-group">
+            <input type="number" class="form-control" id="floatingGoal" placeholder="goal number to reach" name="goalToReach" ngModel>
             <label for="floatingGoal">Goal</label>
         </div>
-    </div>
-    
+        <br>
 
-</div>
-<button class="newGoalCreate" routerLink="/dashboard/:userId">Create Goal</button>
+        <div class="form-floating form-group">
+            <input type="number" class="form-control" id="floatingGoal" placeholder="current progress to goal" name="userProgress" ngModel>
+            <label for="floatingGoal">Current Progress</label>
+        </div>
+
+        <button class="newGoalCreate" type="submit" >Create Goal</button>
+    </div>    
+    
+</form>
+<!-- <button class="newGoalCreate" routerLink="/dashboard/:userId">Create Goal</button> -->

@@ -23,12 +23,12 @@ export class GoalService {
   }
 
   //update a goal by Id
-  updateGoal(editId: number, editedGoal: Goal): Observable<Goal>{
+  updateGoal(editId?: number, editedGoal?: Goal): Observable<Goal>{
     return this.http.put<Goal>(`${this.goalUrl}/${editId}`, editedGoal);
   }
 
   //delete a goal
-  deleteGoal(deleteId: number):Observable<any>{
+  deleteGoal(deleteId?: number):Observable<any>{
     return this.http.delete<any>(`${this.goalUrl}/${deleteId}`);
   }
 

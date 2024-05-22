@@ -1,0 +1,10 @@
+<!-- <h2 mat-dialog-title>Edit Goal Description</h2> -->
+<form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
+    <label for="description"><b>Edit Goal Description</b></label>
+    <textarea type="text" name="description"ngModel></textarea>
+    <div id="select">
+        <button mat-dialog-close>Close</button>
+        <button type="submit" >Confirm</button>
+    </div>
+    
+</form>

@@ -1,6 +1,10 @@
 .card {
-    margin-left: 445px;
+    margin: 5px auto;
+    height: fit-content;
     color: #640058;
+}
+.card-body {
+    margin: opx;
 }
 
 .goalDetailHead {
@@ -14,7 +18,10 @@
     width: 90px;
     margin-left: 70%;
     color: #640058;
-    
-    
-
 }
+.editBTN {
+    width: 90px;
+    margin-left: 40%;
+    color: #640058;
+}
+

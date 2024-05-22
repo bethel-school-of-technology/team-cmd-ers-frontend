@@ -1,6 +1,6 @@
 export class Goal {
 
-    goalId?: number = 0;
+    id?: number = 0;
     name?: string = "";
     type?: string = "";
     description?: string = "";
@@ -8,10 +8,10 @@ export class Goal {
     userProgress?: number = 0;
     dateCreated?: string = "";
 
-    constructor(goalId?:number,name?:string,type?:string,description?:string,
+    constructor(id?:number,name?:string,type?:string,description?:string,
                 goalToReach?:number,userProgress?:number,dateCreated?:string)
     {
-        this.goalId = goalId;
+        this.id = id;
         this.name = name;
         this.type = type;
         this.description = description;

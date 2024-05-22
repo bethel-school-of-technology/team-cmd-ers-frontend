@@ -17,18 +17,26 @@ export class DashboardComponent implements OnInit {
   }
 
   calcProgress(uGoal:Goal){
-    console.log(uGoal);
+    // console.log(uGoal);
     let prog: number = uGoal.userProgress!=undefined ? uGoal.userProgress : 0 ;
     let max: number = uGoal.goalToReach!=undefined ? uGoal.goalToReach : 1;
-    console.log(prog, max);
-    let ratio = prog / max;
-    return ratio*100;
+    // console.log(prog, max, uGoal.id);
+    let ratio : string = (prog / max * 100).toFixed(2);
+    return ratio;
 
+  }
+
+  deleteGoal(id?: number){
+    console.log(id);
+    this.goalService.deleteGoal(id).subscribe(response => {
+      console.log(response);
+      this.ngOnInit();
+    })
   }
 
   ngOnInit(): void{
     this.goalService.getAllGoals().subscribe(response => {
-      console.log(response);
+      // console.log(response);
       this.userGoals = response;
     })
   }

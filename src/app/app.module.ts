@@ -11,6 +11,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateGoalComponent } from './create-goal/create-goal.component';
 import { GoalDetailComponent } from './goal-detail/goal-detail.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { FormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatLabel } from '@angular/material/form-field';
+
+// 
 
 
 @NgModule({
@@ -21,15 +29,21 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     SignUpComponent,
     DashboardComponent,
     CreateGoalComponent,
-    GoalDetailComponent,
+    EditDialogComponent,,
     UserProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NoopAnimationsModule,
+    GoalDetailComponent,
+    MatDialogModule,    
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
