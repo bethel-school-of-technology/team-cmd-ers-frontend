@@ -10,6 +10,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateGoalComponent } from './create-goal/create-goal.component';
 import { GoalDetailComponent } from './goal-detail/goal-detail.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { GoalDetailComponent } from './goal-detail/goal-detail.component';
     SignUpComponent,
     DashboardComponent,
     CreateGoalComponent,
-    GoalDetailComponent
+    GoalDetailComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
