@@ -10,6 +10,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateGoalComponent } from './create-goal/create-goal.component';
 import { GoalDetailComponent } from './goal-detail/goal-detail.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -28,7 +29,8 @@ import { MatLabel } from '@angular/material/form-field';
     SignUpComponent,
     DashboardComponent,
     CreateGoalComponent,
-    EditDialogComponent,
+    EditDialogComponent,,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

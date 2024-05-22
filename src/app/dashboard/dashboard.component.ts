@@ -41,4 +41,9 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+
+  stats(){
+    alert("stats page does not yet exist");
+  }
+
 }

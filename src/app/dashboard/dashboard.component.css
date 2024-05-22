@@ -1,15 +1,39 @@
+#dashName {
+    margin: 5px 10px;
+}
+.dashTabs {
+    border-bottom: 2px solid #640058;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 10px;
+}
+.tabItems {
+    display: inline-block;
+    margin: 0px 5px;
+    width:fit-content;
+}
+ul{
+    margin:3px;
+
+}
+.header {
+    border-bottom: 2px solid #640058;
+    width: 25%;
+}
+
+
+
 .card {
-    margin: 20px auto;
-    width: 60rem;
+    margin: 10px auto;
+    width: 70%;
     color: #640058;
 }
 .new-btn {
-    margin-left: 70%;
+    margin-left: 80%;
     color: #640058;
 }
-.goal-details-btn, .delete-btn {
-    margin-left: 50%;
-    width: 200px;
+.goal-details-btn {
+    margin-left: 70%;
     color: #640058;
 }
 /* .delete-btn {

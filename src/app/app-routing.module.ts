@@ -6,6 +6,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateGoalComponent } from './create-goal/create-goal.component';
 import { GoalDetailComponent } from './goal-detail/goal-detail.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -13,9 +14,11 @@ const routes: Routes = [
   { path: "signup", component: SignUpComponent },
   { path: "dashboard", component: DashboardComponent},
   // { path: "dashboard/:userId", component: DashboardComponent}, // modified for testing on 5.15.24
-  { path: "create-goal", component: CreateGoalComponent},
-  // { path: "create-goal/:userId", component: CreateGoalComponent},
-  { path: "dashboard/goal-detail/:goalId", component: GoalDetailComponent},
+  { path: "create-goal/:userId", component: CreateGoalComponent},
+  { path: "goal-detail/:goalId", component: GoalDetailComponent},
+  { path: "user-profile", component: UserProfileComponent},
+  // { path: "user-profile/:userId", component: UserProfileComponent}, //modfied fro testing on 5.21.24
+  { path: "stats", component:UserProfileComponent},
   { path: "", redirectTo: "home", pathMatch:"full"}
 ]
 ;
