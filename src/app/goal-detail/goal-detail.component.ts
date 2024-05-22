@@ -43,7 +43,7 @@ export class GoalDetailComponent {
 
   ngOnInit(): void {
     // extracted the id from the url
-    this.goal_id = parseInt(this.activeRoute.snapshot.paramMap.get("goalId") ?? '0');
+    this.goal_id = parseInt(this.activeRoute.snapshot.paramMap.get("id") ?? '0');
     // console.log(this.goal_id);
 
     // fetch the goal that matches the id
