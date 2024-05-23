@@ -8,12 +8,17 @@ import { tap } from 'rxjs';
 })
 export class UserService {
 
-  baseURL: string = "https://localhost:4200/api/auth";
+  baseURL: string = "http://localhost:5043";
 
   constructor(private http: HttpClient) { }
 
   signUp(newUser: User){
-    return this.http.post(`${this.baseURL}/signup`, newUser);
+    return this.http.post(`${this.baseURL}/signup`, {
+      Email: newUser.email,
+      FirstName: newUser.firstName,
+      LastName: newUser.lastName,
+      Password: newUser.password
+    });
   }
 
   login(userEmail: string, password:string) {
@@ -21,9 +26,9 @@ export class UserService {
     queryParams = queryParams.append('email', userEmail);
     queryParams = queryParams.append('password', password);
 
-    return this.http.get(`${this.baseURL}/login`, {params: queryParams, responseType: 'text'})
+    return this.http.get(`${this.baseURL}/signin`, {params: queryParams, responseType: 'text'})
     .pipe(tap((response:any) => {
-      localStorage.setItem('myCoffeeToken', response);
+      localStorage.setItem('token', response);
     }));
   }
 
