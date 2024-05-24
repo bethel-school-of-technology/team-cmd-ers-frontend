@@ -3,6 +3,14 @@
     <form (ngSubmit)="signUp()">
         <h2>Sign Up</h2>
         <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="newUser.firstName">
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="newUser.lastName">
+        </div>
+        <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" name="email" [(ngModel)]="newUser.email">
         </div>
@@ -10,11 +18,6 @@
             <label for="inputPassword4" class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="inputPassword4" [(ngModel)]="newUser.password">
         </div>
-        <div class="mb-3">
-            <label for="name" class="form-label">Full Name</label>
-            <input type="text" class="form-control" name="firstName" name="lastName" id="inputName" [(ngModel)]="newUser.firstName" [(ngModel)]="newUser.lastName" >
-        </div>
-
 
         <div class="mb-3">
             <button type="submit" class="btn btn-primary">Sign Up</button>
