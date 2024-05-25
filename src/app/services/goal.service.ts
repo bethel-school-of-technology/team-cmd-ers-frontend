@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Goal } from '../models/goal';
 import { Observable } from 'rxjs';
+// import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,16 @@ export class GoalService {
   }
 
   //update a goal by Id
-  updateGoal(editId?: number, editedGoal?: Goal): Observable<Goal>{
-    return this.http.put<Goal>(`${this.goalUrl}/${editId}`, editedGoal);
+  updateGoal( editedGoal?: Goal): Observable<Goal>{
+    if(editedGoal===undefined){
+      throw new Error("goal undefined");
+    } else {
+    return this.http.put<Goal>(`${this.goalUrl}/${editedGoal.id}`, editedGoal);
+    }
   }
+  // updateGoal(editId?: number, editedGoal?: Goal): Observable<Goal>{
+  //   return this.http.put<Goal>(`${this.goalUrl}/${editId}`, editedGoal);
+  // }
 
   //delete a goal
   deleteGoal(deleteId?: number):Observable<any>{

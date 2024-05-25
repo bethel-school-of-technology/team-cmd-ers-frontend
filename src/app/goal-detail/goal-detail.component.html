@@ -1,16 +1,16 @@
 <br><br><br>
-<h1 class="goalDetailHead">My Goal: {{curGoal.name}}</h1>
+<h1 class="goalDetailHead">My Goal: {{this.name}}</h1>
 
 <br><br>
 <div class="card" style="width: 37rem; height: 8rem;">
     <div class="card-body">Description
-        <p>{{curGoal.description}}</p>        
+        <p>{{this.description}}</p>        
         <!-- trigger dialog box for editing the description -->
         <div class="container">
             <div class="row">
                 <p class="col">Goal: {{curGoal.goalToReach}}</p>
                 <div class="col">
-                <button class="editBTN" type="button" mat-raised-button (click)="openDialog('0ms', '0ms')">
+                <button class="editBTN" type="button" color="primary" mat-raised-button (click)="openDialog()">
                     Edit
                 </button>   
                 </div> 
@@ -26,9 +26,9 @@
         <form (ngSubmit)="updateProgress()">
             <label for="numbers" class="form-label">Todays Numbers</label>
     
-            <input type="number" class="form-control" name="todaysNumber" name="userProgress" ngModel >
+            <input type="number" class="form-control" name="userProgress" ngModel >
 
-            <button class="numbersBTN" >Submit</button>
+            <button type="submit" class="numbersBTN" color="primary" mat-raised-button>Submit</button>
         </form>
 
     </div>
@@ -37,7 +37,7 @@
 <div class="card" style="width: 37rem; height: 8rem;">
     <div class="card-body">
         Previous Days Numbers
-        <p>Current Progress: {{prevProgress}}</p>
+        <p>Current Progress: {{this.prevProgress}}</p>
     </div>
 </div>
 <br>
