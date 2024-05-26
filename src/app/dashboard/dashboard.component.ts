@@ -13,23 +13,12 @@ export class DashboardComponent implements OnInit {
   // property to store user goals
   userGoals: Goal[] = [];
 
-  //stores daily quote
-  dailyQuote = {};
-
   constructor(private goalService: GoalService, private dailyQuotes: DailyQuotesService) { }
 
   ngOnInit(): void{
     this.goalService.getAllGoals().subscribe(response => {
       // console.log(response);
       this.userGoals = response;
-    })
-    this.getQuote();
-  }
-
-  getQuote(){
-    this.dailyQuotes.getDailyQuote().subscribe(response => {
-      //console.log(response);
-      this.dailyQuote = response;
     })
   }
 
