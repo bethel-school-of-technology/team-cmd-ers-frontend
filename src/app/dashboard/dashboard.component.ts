@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GoalService } from '../services/goal.service';
+import { DailyQuotesService } from '../services/daily-quotes.service';
 import { Goal } from '../models/goal';
 
 @Component({
@@ -12,8 +13,24 @@ export class DashboardComponent implements OnInit {
   // property to store user goals
   userGoals: Goal[] = [];
 
-  constructor(private goalService: GoalService) {
+  //stores daily quote
+  dailyQuote = {};
 
+  constructor(private goalService: GoalService, private dailyQuotes: DailyQuotesService) { }
+
+  ngOnInit(): void{
+    this.goalService.getAllGoals().subscribe(response => {
+      // console.log(response);
+      this.userGoals = response;
+    })
+    this.getQuote();
+  }
+
+  getQuote(){
+    this.dailyQuotes.getDailyQuote().subscribe(response => {
+      //console.log(response);
+      this.dailyQuote = response;
+    })
   }
 
   calcProgress(uGoal:Goal){
@@ -33,14 +50,6 @@ export class DashboardComponent implements OnInit {
       this.ngOnInit();
     })
   }
-
-  ngOnInit(): void{
-    this.goalService.getAllGoals().subscribe(response => {
-      // console.log(response);
-      this.userGoals = response;
-    })
-  }
-
 
   stats(){
     alert("stats page does not yet exist");
