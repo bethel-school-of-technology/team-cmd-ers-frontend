@@ -1,3 +1,26 @@
+#dashName {
+    margin: 5px 10px;
+}
+.dashTabs {
+    border-bottom: 2px solid #640058;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 10px;
+}
+.tabItems {
+    display: inline-block;
+    margin: 0px 5px;
+    width:fit-content;
+}
+ul{
+    margin:3px;
+
+}
+.header {
+    border-bottom: 2px solid #640058;
+    width: 25%;
+}
+
 .card {
     margin: 5px auto;
     height: fit-content;
@@ -17,11 +40,14 @@
 .numbersBTN {
     width: 90px;
     margin-left: 70%;
-    color: #640058;
+    /* color: #640058; */
 }
 .editBTN {
     width: 90px;
     margin-left: 40%;
-    color: #640058;
+    /* color: #640058; */
 }
-
+.mat-primary{
+    background-color: #640058;
+    color: whitesmoke;
+}

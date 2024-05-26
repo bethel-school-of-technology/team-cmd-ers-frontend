@@ -18,8 +18,6 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatLabel } from '@angular/material/form-field';
 
-// 
-
 
 @NgModule({
   declarations: [
@@ -29,7 +27,7 @@ import { MatLabel } from '@angular/material/form-field';
     SignUpComponent,
     DashboardComponent,
     CreateGoalComponent,
-    EditDialogComponent,
+    // EditDialogComponent,
     UserProfileComponent
   ],
   imports: [
