@@ -20,12 +20,26 @@ export class CreateGoalComponent {
 
   }
 
-  createNewGoal(addGoal: Goal) {
+ 
+  async createNewGoal(addGoal: Goal) {
     this.newGoal = addGoal;
-    this.goalService.createGoal(this.newGoal).subscribe(response => {
-      // console.log(response);
-      
+    await this.goalService.createGoal(this.newGoal).subscribe(response => {
+      console.log(response);
     })
+    this.dashRoute();
+  }
+
+  dashRoute(){
+    console.log("routing to dashboard");
+    this.router.navigate(['/dashboard']);
+  }
+
+  profileRoute(){
+    this.router.navigate(['/user-profile']);
+  }
+
+  stats(){
+    alert("stats page does not yet exist");
   }
 
 }
