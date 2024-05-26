@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { tap } from 'rxjs';
+import { tap, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,12 @@ import { tap } from 'rxjs';
 export class UserService {
 
   baseURL: string = "http://localhost:5043/auth";
+  userToken: string = "token";
 
   constructor(private http: HttpClient) { }
 
   signUp(newUser: User){
+    console.log("service: ",newUser);
     return this.http.post(`${this.baseURL}/signup`, newUser);
   }
 
@@ -25,6 +27,14 @@ export class UserService {
     .pipe(tap((response:any) => {
       localStorage.setItem('token', response);
     }));
+  }
+
+  getUserById(userId: number): Observable<User>{
+    let reqHeaders = {
+      Authorization: `Bearer ${localStorage.getItem(this.userToken)}`
+    }
+    console.log(localStorage.getItem(this.userToken));
+    return this.http.get<User>(`${this.baseURL}/dashboard`,{headers:reqHeaders});
   }
 
   editUser(editUser: User){

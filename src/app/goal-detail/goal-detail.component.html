@@ -1,44 +1,54 @@
-<br><br><br>
-<h1 class="goalDetailHead">My Goal: {{this.name}}</h1>
+<div id="dash">
+    <header id="dashName">Hello --user.firstName--</header>
+    <nav class="dashTabs js-nav" >
+        <ul>
+            <li class="tabItems" (click)="profileRoute()">profile info</li>
+            <li class="tabItems" (click)="dashRoute()">dashboard</li>
+            <li class="tabItems" (click)="stats()">stats</li>
+        </ul>
+    </nav>
+    <br>
+    <h1 class="goalDetailHead">My Goal: {{this.name}}</h1>
 
-<br><br>
-<div class="card" style="width: 37rem; height: 8rem;">
-    <div class="card-body">Description
-        <p>{{this.description}}</p>        
-        <!-- trigger dialog box for editing the description -->
-        <div class="container">
-            <div class="row">
-                <p class="col">Goal: {{curGoal.goalToReach}}</p>
-                <div class="col">
-                <button class="editBTN" type="button" color="primary" mat-raised-button (click)="openDialog()">
-                    Edit
-                </button>   
-                </div> 
+    <br>
+    <div class="card" style="width: 37rem; height: 8rem;">
+        <div class="card-body">Description
+            <p>{{this.description}}</p>        
+            <!-- trigger dialog box for editing the description -->
+            <div class="container">
+                <div class="row">
+                    <p class="col">Goal: {{curGoal.goalToReach}}</p>
+                    <div class="col">
+                    <button class="editBTN" type="button" color="primary" mat-raised-button (click)="openDialog()">
+                        Edit
+                    </button>   
+                    </div> 
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<br>
-<div class="card" style="width: 37rem; height: 8rem;">
-    <div class="card-body">
-        <form (ngSubmit)="updateProgress()">
-            <label for="numbers" class="form-label">Todays Numbers</label>
-    
-            <input type="number" class="form-control" name="userProgress" ngModel >
+    <br>
+    <div class="card" style="width: 37rem; height: 8rem;">
+        <div class="card-body">
+            <form #progForm="ngForm" (ngSubmit)="updateProgress(progForm)">
+                <label for="numbers" class="form-label">Todays Numbers</label>
+        
+                <input type="number" class="form-control" name="todaysNumbers" placeholder="" ngModel >
 
-            <button type="submit" class="numbersBTN" color="primary" mat-raised-button>Submit</button>
-        </form>
+                <button type="submit" class="numbersBTN" color="primary" mat-raised-button>Submit</button>
+            </form>
 
+        </div>
     </div>
-</div>
-<br>
-<div class="card" style="width: 37rem; height: 8rem;">
-    <div class="card-body">
-        Previous Days Numbers
-        <p>Current Progress: {{this.prevProgress}}</p>
+    <br>
+    <div class="card" style="width: 37rem; height: 8rem;">
+        <div class="card-body">
+            Previous Days Numbers
+            <p>Current Progress: {{this.prevProgress}}</p>
+        </div>
     </div>
+    <br>
 </div>
-<br>
 

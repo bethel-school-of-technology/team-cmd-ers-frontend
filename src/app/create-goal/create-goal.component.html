@@ -1,5 +1,14 @@
+<div id="dash">
+    <header id="dashName">Hello --user.firstName--</header>
+    <nav class="dashTabs js-nav" >
+        <ul>
+            <li class="tabItems" (click)="profileRoute()">profile info</li>
+            <li class="tabItems" (click)="dashRoute()">dashboard</li>
+            <li class="tabItems" (click)="stats()">stats</li>
+        </ul>
+    </nav>
 <br>
-<button class="back" routerLink="/dashboard">Back to Dashboard</button>
+<!-- <button class="back" routerLink="/dashboard">Back to Dashboard</button> -->
 <h1 class="goalHead">Add a New Goal</h1>
 
 
@@ -44,4 +53,5 @@
     </div>    
     
 </form>
+</div>
 <!-- <button class="newGoalCreate" routerLink="/dashboard/:userId">Create Goal</button> -->

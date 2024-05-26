@@ -5,6 +5,8 @@ import { GoalService } from '../services/goal.service';
 import { MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { EditDialogComponent, EditsData } from '../edit-dialog/edit-dialog.component';
+import { Router } from '@angular/router';
+import { FormsModule, NgForm } from '@angular/forms';
 
 
 export interface DialogData {
@@ -17,7 +19,9 @@ export interface DialogData {
   templateUrl: './goal-detail.component.html',
   styleUrls: ['./goal-detail.component.css'],
   standalone: true,
-  imports: [MatButtonModule],
+  imports: [MatButtonModule,
+            FormsModule
+  ],
 })
 export class GoalDetailComponent {
 
@@ -30,13 +34,14 @@ export class GoalDetailComponent {
 
   prevProgress?: number = 0;
 
-  constructor(private activeRoute:ActivatedRoute, private goalService: GoalService, public dialog:MatDialog,){ }
+  constructor(private activeRoute:ActivatedRoute, private goalService: GoalService, public dialog:MatDialog,
+              private router:Router){ }
 
   //opens the edit-dialog box/component to allow user edits to goal name and description 
   openDialog(): void {
     const dialogRef = this.dialog.open(EditDialogComponent, {
       data: {name: this.name, description: this.description},
-      height: '30%',
+      height: '40%',
       width: '25%',
     });
 
@@ -77,12 +82,19 @@ export class GoalDetailComponent {
     });
   }
 
-  updateProgress(){
-    console.log(this.curGoal.userProgress);
+  //use this for updating daily progress toward the goal
+  //still needs to be completed after implementing data array
+  updateProgress(form: NgForm): void{
+    // console.log("prog update",form.value.todaysNumbers);
+    let todaysNum: number = form.value.todaysNumbers;
     this.prevProgress = this.curGoal.userProgress;
-    // let todaysNum = this.curGoal.userProgress;
-    // console.log(this.curGoal.userProgress);
-    // return todaysNum;
+    this.curGoal.userProgress = todaysNum;
+    // console.log(this.prevProgress,"|",this.curGoal.userProgress);
+    this.goalService.updateGoal(this.curGoal).subscribe(result =>{
+      console.log(result);
+    });
+    this.router.navigate([this.router.url]);
+    
   }
 
   ngOnInit(): void {
@@ -95,5 +107,16 @@ export class GoalDetailComponent {
     
   }
 
+  profileRoute(){
+    this.router.navigate(['/user-profile']);
+  }
+
+  dashRoute(){
+    this.router.navigate(['/dashboard']);
+  }
+
+  stats(){
+    alert("stats page does not yet exist");
+  }
   
 }
