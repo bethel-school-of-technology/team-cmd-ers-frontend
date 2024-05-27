@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
     this.getDailyQuote();
   }
 
+  //Gets our Daily quote and store in local storage
   getDailyQuote(): void {
     if(this.localStorageCheck('dailyQuote') && this.localStorageCheck('dailyQuoteAuthor')){
       this.quote = localStorage.getItem('dailyQuote');
