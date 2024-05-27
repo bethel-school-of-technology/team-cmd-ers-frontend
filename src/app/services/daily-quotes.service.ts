@@ -16,7 +16,11 @@ export class DailyQuotesService {
     const url = `${this.quotesUrl}?api_key=${this.apiToken}`;
     return this.http.get<any>(url)
     .pipe(tap((response: any) => {
-      localStorage.setItem('dailyQuote', response);
+      const quote = response.contents.quotes[0].quote;
+      const author = response.contents.quotes[0].author;
+
+      localStorage.setItem('dailyQuote', quote);
+      localStorage.setItem('dailyQuoteAuthor', author);
     }));;
   }
 
