@@ -15,18 +15,18 @@ export class HomeComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
 
- ngOnInit(): void {
- }
+  ngOnInit(): void {
+  }
 
 
- signin(){
-  this.userService.login(this.email, this.password).subscribe((response:any) => {
+  signin(){
+    this.userService.login(this.email, this.password).subscribe((response:any) => {
       this.router.navigateByUrl('/dashboard');
-  }, error => {
-    console.log('Error: ', error);
-    window.alert('Unsuccessful Login');
-    // this.router.navigateByUrl('/home');
-});
-}
+    }, error => {
+      console.log('Error: ', error);
+      window.alert('Unsuccessful Login');
+      // this.router.navigateByUrl('/home');
+    });
+  }
 }
  

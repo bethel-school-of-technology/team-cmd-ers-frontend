@@ -7,6 +7,12 @@
             <li class="tabItems" (click)="stats()">stats</li>
         </ul>
     </nav>
+
+    <div>
+        <p>
+            {{this.quote}} -- {{this.author}}
+        </p>
+    </div>
     <br>
     <div class="main-content">
         <button class="new-btn" routerLink="/create-goal">Create New Goal</button>
@@ -17,9 +23,7 @@
                 <div class="card-body">
                     <h1>My Goal: {{g.name}}</h1>
                     <h4>goal Id: {{g.id}}</h4>
-            <p class="card-text">{{g.description}}</p>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
+                    <p class="card-text">{{g.description}}</p>
                     <h2>Progress:   {{calcProgress(g)}}%</h2>
                     <!-- <h2>Progress: {{g.progress/g.goalToReach}}%</h2> -->
                 </div>
