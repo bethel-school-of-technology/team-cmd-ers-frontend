@@ -4,18 +4,20 @@
 
 #navbarNav {
     margin-left: 20%;
+    color: black;
 }
 
 .nav-linkVerse {
-    font-size: 10px;
+    font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-right: 30px;
-    color: azure;
+    color: black;
     font-size: 15px;
 }
 
 .navbar-brand {
-    color: azure;
-    margin-left: 30px;
+    
+    margin-left: 90px;
+    padding-top: 80px;
     font-size: 10px;
 }

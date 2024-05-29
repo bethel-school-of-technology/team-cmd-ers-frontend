@@ -2,37 +2,47 @@
     <br><br><br><br><br><br><br>
 
 
+    <mat-grid-list cols="2" rowHeight="600px">
+        <mat-grid-tile>
 
-    <div class="card" style="width: 10rem;">
-        <form (ngSubmit)="signin()">
+            <div>
+                <h1>The last strength training app you'll ever need.</h1>
+
+                <p>
+                    Caliber is a better way to work out. Get effective training programs, seamless workout tracking, strength metrics, fitness & nutrition education, and so much more.
+                </p>
+
+                <p style="font-weight: bold;">Now available – and 100% free.</p>
+            </div>
+
+        </mat-grid-tile>
+        <mat-grid-tile>
+
+        <img src="https://placehold.co/400x600" />
+
+        </mat-grid-tile>
+      </mat-grid-list>
+      
+
+
+    <!-- <div class="card" style="width: 10rem;"> -->
+        <!-- <form (ngSubmit)="signin()">
             <h2>Sign In</h2>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="email">
+                <input type="email" name="Email" class="form-control" id="email" aria-describedby="emailHelp" [(ngModel)]="email">
 
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password">
+                <input type="password" name="Password" class="form-control" id="password" [(ngModel)]="password">
             </div>
 
-            <!-- <button routerLink="/dashboard/:userId" onClick="validateForm()" type="submit"type="button" class="btn btn-info">Sign In</button> -->
-        <button>Sign In</button>
-        </form>
-        <!-- <script>
-            function validateForm() {
-                var username = document.getElementById("email").value;
-                var password = document.getElementById("password").value;
+        <button (click)="openDialog()">Sign In</button>
+        </form> -->
+
         
-                if (email === "" || password === "") {
-                    document.getElementById("errorMessage").innerHTML = "Please enter both username and password.";
-                    return false;
-                }
-              
-                return true;
-            }
-        </script> -->
-    </div>
+    <!-- </div> -->
 
     <div class="homeText">
         <div class="card-body1" style="width: 18rem;">
@@ -58,6 +68,8 @@
     </div>
 </div>
 
+  
+
 <!-- <script>
     function validateForm() {
         var username = document.getElementById("email").value;
@@ -71,3 +83,6 @@
         return true;
     }
 </script> -->
+
+
+  
