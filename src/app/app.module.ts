@@ -18,6 +18,7 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatLabel } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { SignInDialogComponent } from './sign-in-dialog/sign-in-dialog.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     DashboardComponent,
     CreateGoalComponent,
     // EditDialogComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    SignInDialogComponent
   ],
   imports: [
     BrowserModule,
