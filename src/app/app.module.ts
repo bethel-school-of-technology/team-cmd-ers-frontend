@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatLabel } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -37,7 +38,9 @@ import { MatLabel } from '@angular/material/form-field';
     FormsModule,
     NoopAnimationsModule,
     GoalDetailComponent,
-    MatDialogModule,    
+    MatDialogModule,  
+    MatGridListModule,
+     
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

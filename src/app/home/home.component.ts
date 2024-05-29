@@ -3,23 +3,33 @@ import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
 
+
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
+
 })
 export class HomeComponent implements OnInit {
-  email: string = '';
-  password: string = '';
+  public email: string = '';
+  public password: string = '';
+
+  
 
 
   constructor(private userService: UserService, private router: Router) { }
+
+  
 
   ngOnInit(): void {
   }
 
 
   signin(){
+console.log(this.email, this.password);
+
     this.userService.login(this.email, this.password).subscribe((response:any) => {
       this.router.navigateByUrl('/dashboard');
     }, error => {
