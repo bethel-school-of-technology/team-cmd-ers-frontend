@@ -18,9 +18,11 @@ export class DailyQuotesService {
     .pipe(tap((response: any) => {
       const quote = response.contents.quotes[0].quote;
       const author = response.contents.quotes[0].author;
+      const date = response.contents.quotes[0].date;
 
       localStorage.setItem('dailyQuote', quote);
       localStorage.setItem('dailyQuoteAuthor', author);
+      localStorage.setItem('dailyQuoteDate', date);
     }));;
   }
 
