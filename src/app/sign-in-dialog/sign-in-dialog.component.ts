@@ -20,13 +20,15 @@ export class SignInDialogComponent implements OnInit {
   public password: string = '';
 
   constructor(private userService: UserService, private router: Router, public dialogRef: MatDialogRef<SignInDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  
   ngOnInit(): void {
-   
     console.log(" sign in OPEN");
+
+
   }
 
   signin(){
-    console.log(this.email, this.password);
+    // console.log(this.email, this.password);
     this.dialogRef.close({confirmed:true, data:{email:this.email, password: this.password}});
       //   this.userService.login(this.email, this.password).subscribe((response:any) => {
       //     this.router.navigateByUrl('/dashboard');
@@ -36,4 +38,5 @@ export class SignInDialogComponent implements OnInit {
       //     // this.router.navigateByUrl('/home');
       //   });
       // }
-}}
+  }
+}

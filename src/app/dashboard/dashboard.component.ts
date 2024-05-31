@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GoalService } from '../services/goal.service';
 import { DailyQuotesService } from '../services/daily-quotes.service';
 import { Goal } from '../models/goal';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +20,12 @@ export class DashboardComponent implements OnInit {
   date: any;
   currentDate: string = new Date().toISOString().split('T')[0];
 
-  constructor(private goalService: GoalService, private dailyQuotes: DailyQuotesService) { }
+  firstName: string = "";
+  lastName: string = "";
+  email: string = "";
+
+  constructor(private goalService: GoalService, private dailyQuotes: DailyQuotesService, 
+              private router: Router, private userService: UserService) { }
 
   ngOnInit(): void{
     this.goalService.getAllGoals().subscribe(response => {
@@ -26,6 +33,18 @@ export class DashboardComponent implements OnInit {
       this.userGoals = response;
     })
     this.getDailyQuote();
+
+    this.setUserData();
+
+  }
+
+  //pulls user data in from local storage and sets local variable values
+  setUserData(){
+    this.userService.parseUser();
+    this.firstName = this.userService.firstName;
+    this.lastName = this.userService.lastName;
+    this.email = this.userService.email;
+    // console.log("dash set user:",this.email);
   }
 
   //Gets our Daily quote and store in local storage
@@ -76,9 +95,23 @@ export class DashboardComponent implements OnInit {
       this.ngOnInit();
     })
   }
+  
+
+  //method for routing to the dashboard
+  dashRoute(){
+    console.log("routing to dashboard");
+    this.router.navigate(['/dashboard']);
+  }
+
+  //method for routing to the profile page
+  profileRoute(){
+    console.log("routing to user-profile");
+    this.router.navigate(['/user-profile']);
+  }
 
   stats(){
     alert("stats page does not yet exist");
   }
 
+  
 }

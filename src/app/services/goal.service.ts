@@ -19,7 +19,7 @@ export class GoalService {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.userToken)}`
     }
-    console.log(localStorage.getItem(this.userToken));
+    // console.log(localStorage.getItem(this.userToken));
     return this.http.get<Goal[]>(`${this.goalUrl}/user`, {headers:reqHeaders});
   }
 
@@ -28,7 +28,7 @@ export class GoalService {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.userToken)}`
     }
-    console.log(localStorage.getItem(this.userToken));
+    // console.log(localStorage.getItem(this.userToken));
     return this.http.get<Goal>(`${this.goalUrl}/${goalId}`,{headers:reqHeaders});
   }
 

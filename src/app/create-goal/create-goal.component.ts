@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GoalService } from '../services/goal.service';
 import { Router } from '@angular/router';
 import { Goal } from '../models/goal';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-create-goal',
@@ -12,12 +13,26 @@ export class CreateGoalComponent {
 
   newGoal: Goal = new Goal;
 
-  constructor(private goalService: GoalService, private router: Router) {
+  firstName: string = "";
+  lastName: string = "";
+  email: string = "";
+
+  constructor(private goalService: GoalService, private router: Router, private userService: UserService) {
 
   }
 
   ngOnInit(): void {
+    this.setUserData();
 
+  }
+
+  //pull user data in from local storage and sets local variable values
+  setUserData(){
+    this.userService.parseUser();
+    this.firstName = this.userService.firstName;
+    this.lastName = this.userService.lastName;
+    this.email = this.userService.email;
+    // console.log("dash set user:",this.email);
   }
 
  
@@ -29,12 +44,15 @@ export class CreateGoalComponent {
     this.dashRoute();
   }
 
+  //method for routing to the dashboard
   dashRoute(){
     console.log("routing to dashboard");
     this.router.navigate(['/dashboard']);
   }
 
+  //method for routing to the profile page
   profileRoute(){
+    console.log("routing to user-profile");
     this.router.navigate(['/user-profile']);
   }
 

@@ -18,9 +18,9 @@ export class AppComponent {
 
 
   signin(){
-    console.log(this.email, this.password);
+    // console.log(this.email, this.password);
     
-        this.userService.login(this.email, this.password).subscribe((response:any) => {
+        this.userService.signIn(this.email, this.password).subscribe((response:any) => {
           console.log("response", response);
           this.router.navigateByUrl('/dashboard');
         }, error => {
@@ -37,10 +37,24 @@ export class AppComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result.data.email, result.data.password);
+      // console.log('The dialog was closed', result.data.email, result.data.password);
       this.email = result.data.email;
       this.password = result.data.password;
       this.signin();
     });
   }
+
+  signOut(): void {
+    // call user service to signout and reroute to Home page
+    this.userService.signOut();
+    this.homeRoute();
+  }
+
+
+  //method for routing to the home page
+  homeRoute(){
+    console.log("routing to home page");
+    this.router.navigate(['home']);
+  }
+
 }
