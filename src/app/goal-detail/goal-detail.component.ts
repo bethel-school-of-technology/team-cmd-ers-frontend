@@ -107,12 +107,16 @@ export class GoalDetailComponent {
     
   }
 
-  profileRoute(){
-    this.router.navigate(['/user-profile']);
+  //method for routing to the dashboard
+  dashRoute(){
+    console.log("routing to dashboard");
+    this.router.navigate(['/dashboard']);
   }
 
-  dashRoute(){
-    this.router.navigate(['/dashboard']);
+  //method for routing to the profile page
+  profileRoute(){
+    console.log("routing to user-profile");
+    this.router.navigate(['/user-profile']);
   }
 
   stats(){
