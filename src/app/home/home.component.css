@@ -2,34 +2,77 @@
     margin-top: 10px;
     margin-left: 1260px;
     color: #640058;
-   
-   
+
+
 }
 
+.homeText {
+
+    background-color: white;
 
 
 
-.card-body1 {
+}
+
+.firstEver {
+    margin-left: 222px;
     color: #640058;
-   
-    padding-bottom: 250px;
-    margin-left: 45px;
+    margin-top: 50px;
+    font-size: 40px;
+
 }
+
+
+
+
 
 .card-body2 {
-    color: #640058;
-    margin-bottom: 400px;
-    margin-left: 45px;
+    color: white;
+
+    margin-left: 605px;
+
 }
+
+.homeText2 {
+    position: absolute;
+    left: 240px;
+    margin-top: 50px;
+    font-size: 40PX;
+}
+
+
 
 .card-img-top {
-    width: 400px;
-    height: 400px;
-    margin-left: 500px;
-    padding: 50px;
+    width: 300px;
+    height: 250px;
+    margin-left: 580px;
+    padding-top: 50px;
+
+
 }
 
-.homePG {
-    border-radius: solid;
+.card-img-bottom {
+    padding-top: 150px;
+
 }
 
+
+
+
+.homePGContent {
+    margin-left: 150px;
+    font-size: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: azure;
+}
+
+.section1Pic {
+    border-radius: 12%;
+}
+
+.Sentence1 {
+    font-size: 60px;
+    font-weight: 500;
+    color: azure;
+
+}

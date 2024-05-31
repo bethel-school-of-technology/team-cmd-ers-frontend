@@ -1,5 +1,6 @@
 #footer {
     background-color: #640058;
+    height: 30px;
 }
 
 #navbarNav {
@@ -10,9 +11,10 @@
 .nav-linkVerse {
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-right: 30px;
-    color: black;
+    margin-left: 270px;
+    color: white;
     font-size: 15px;
+    
 }
 
 .navbar-brand {
@@ -20,4 +22,5 @@
     margin-left: 90px;
     padding-top: 80px;
     font-size: 10px;
+    color: white;
 }
