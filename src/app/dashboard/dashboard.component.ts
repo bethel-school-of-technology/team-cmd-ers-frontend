@@ -17,6 +17,8 @@ export class DashboardComponent implements OnInit {
 
   quote: any;
   author: any;
+  date: any;
+  currentDate: string = new Date().toISOString().split('T')[0];
 
   firstName: string = "";
   lastName: string = "";
@@ -47,6 +49,13 @@ export class DashboardComponent implements OnInit {
 
   //Gets our Daily quote and store in local storage
   getDailyQuote(): void {
+    if (this.dateCheck(this.currentDate)) {
+      localStorage.removeItem('dailyQuote');
+      localStorage.removeItem('dailyQuoteAuthor');
+      localStorage.removeItem('dailyQuoteDate');
+      console.log('Removed daily quote items');
+    }
+
     if(this.localStorageCheck('dailyQuote') && this.localStorageCheck('dailyQuoteAuthor')){
       this.quote = localStorage.getItem('dailyQuote');
       this.author = localStorage.getItem('dailyQuoteAuthor');
@@ -54,9 +63,9 @@ export class DashboardComponent implements OnInit {
       this.dailyQuotes.getDailyQuote().subscribe(response => {
         this.quote = response.contents.quotes[0].quote;
         this.author = response.contents.quotes[0].author;
+        this.date = response.contents.quotes[0].date;
       })
     }
-    
   }
 
   //checks to see if there are any items in the local storage
@@ -64,7 +73,10 @@ export class DashboardComponent implements OnInit {
     return localStorage.getItem(item) !== null;
   }
 
-  
+  //checks current date and compares it to whatever the quote in local storage is dated as
+  dateCheck(currentDate: string): boolean {
+    return currentDate !== localStorage.getItem('dailyQuoteDate');
+  }
 
   calcProgress(uGoal:Goal){
     // console.log(uGoal);
