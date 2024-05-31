@@ -17,7 +17,7 @@
 .firstEver {
     margin-left: 222px;
     color: #640058;
-    margin-top: 50px;
+    margin-top: 90px;
     font-size: 40px;
 
 }
@@ -36,7 +36,7 @@
 .homeText2 {
     position: absolute;
     left: 240px;
-    margin-top: 50px;
+    margin-top: 65px;
     font-size: 40PX;
 }
 
@@ -44,15 +44,17 @@
 
 .card-img-top {
     width: 300px;
-    height: 250px;
+    height: 300px;
     margin-left: 580px;
-    padding-top: 50px;
+    padding-top: 70px;
 
 
 }
 
 .card-img-bottom {
     padding-top: 150px;
+    height: 300px;
+    position: absolute; left: 560px;
 
 }
 
