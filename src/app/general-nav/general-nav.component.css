@@ -3,13 +3,12 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 150px;
+  /* background-color: #009688; */
 }
 
 .sidenav .mat-toolbar {
-  /* background: inherit; */
-  background-color: #640058;
-  color:whitesmoke;
+  background: inherit;
 }
 
 .mat-toolbar.mat-primary {
@@ -20,10 +19,9 @@
 
 .menu-btn, .nav-item {
   flex: 1 1 auto;
+  
 }
 
-.alt-primary {
-  background-color: #640058;
-    color:whitesmoke;
+#app-name {
+  font-size: xx-large;
 }
-

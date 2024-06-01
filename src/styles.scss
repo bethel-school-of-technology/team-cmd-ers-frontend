@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.core();
+
+
+//create a main theme
+
+.purple-darker{
+    //choose palette from default color _palette.scss  -deep-purple-palette, -cyan-palette, & -amber-palette
+
+    $light-primary: mat.define-palette(mat.$deep-purple-palette, 700, 800, 300);
+    $light-accent: mat.define-palette(mat.$cyan-palette,800 );
+    $light-warn: mat.define-palette(mat.$amber-palette, 900);
+
+    $main-theme: mat.define-light-theme((color:(
+        primary:$light-primary,
+        accent: $light-accent,
+        warn: $light-warn
+    )));
+
+    @include mat.all-component-colors($main-theme);
+}
+
+.purple-mid{
+    //choose palette from default color _palette.scss  -deep-purple-palette, -cyan-palette, & -amber-palette
+
+    $light-primary: mat.define-palette(mat.$purple-palette,  700);
+    $light-accent: mat.define-palette(mat.$teal-palette, 500);
+    $light-warn: mat.define-palette(mat.$amber-palette, 700);
+
+    $main-theme: mat.define-light-theme((color:(
+        primary:$light-primary,
+        accent: $light-accent,
+        warn: $light-warn
+        )
+    ));
+
+    @include mat.all-component-themes($main-theme);
+}
+
+.purple-light{
+    //choose palette from default color _palette.scss  -deep-purple-palette, -cyan-palette, & -amber-palette
+
+    $light-primary: mat.define-palette(mat.$deep-purple-palette,  300);
+    $light-accent: mat.define-palette(mat.$teal-palette, 300);
+    $light-warn: mat.define-palette(mat.$deep-orange-palette, 300);
+
+    $main-theme: mat.define-light-theme((color:(
+        primary:$light-primary,
+        accent: $light-accent,
+        warn: $light-warn
+    )));
+
+    @include mat.all-component-colors($main-theme);
+}
+
+
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

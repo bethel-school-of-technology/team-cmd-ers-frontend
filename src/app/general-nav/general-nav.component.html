@@ -1,21 +1,21 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" >
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [mode]="'over'"
       [opened]="false" position="end">
-    <mat-toolbar>Your Fit Trac</mat-toolbar>
+    <mat-toolbar class="nav-list-item" >Your Fit Trac</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item (click)="openDialog()" (click)="this.closeSidenav(drawer)">Sign In</a>  <!--sign in-->
-      <a mat-list-item routerLink="/signup" (click)="this.closeSidenav(drawer)">Sign Up</a>  <!--sign up-->
-      <a mat-list-item routerLink="/home" (click)="this.closeSidenav(drawer)">--Home--</a>
+      <a mat-list-item  class="nav-list-item" (click)="openDialog()" (click)="this.closeSidenav(drawer)">Sign In</a>  <!--sign in-->
+      <a mat-list-item  class="nav-list-item" routerLink="/signup" (click)="this.closeSidenav(drawer)">Sign Up</a>  <!--sign up-->
+      <a mat-list-item  class="nav-list-item" routerLink="/home" (click)="this.closeSidenav(drawer)">--Home--</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content  class="alt-primary">
-    <mat-toolbar class="alt-primary" >
+    <mat-toolbar class="alt-primary" color="primary">
       <a class="nav-item" href="/home">
-        <img src="/assets/logo.png"  height="50" />
+        <img src="/assets/logo.png"  height="75" />
       </a>
-      <span class="nav-item">Fit Trac</span>
+      <span class="nav-item" id="app-name">Fit Trac</span>
       <button
       fxFlex fxLayoutAlign="flex-end center"
         type="button"
