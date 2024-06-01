@@ -21,21 +21,30 @@
 }
 
 .footer {
-    min-height: 50px;
+    max-height: 75px;
     padding-top: .5rem;
+    font-size: large;
+    font-family: Finlandica;
 }
 
 
 
 .nav-linkVerse, .nav-brand {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    min-width: 70%;
+    min-width: 75%;
     margin-right: 30px;
     color: whitesmoke;
     font-size: 12px;
     text-wrap: wrap;
+    text-align: center;
+}
+
+#verse {
+    font-size: 14px;
 }
 
 #verse-ref {
+    font-size: medium;;
     justify-content: end;
+    text-wrap: wrap;
 }

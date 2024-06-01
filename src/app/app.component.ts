@@ -6,8 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { SignInDialogComponent } from './sign-in-dialog/sign-in-dialog.component';
 import {MatButtonModule} from '@angular/material/button';
 
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +20,7 @@ export class AppComponent implements OnInit{
   hasUserToken: boolean = this.checkForUserToken();
 
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog,
-              @Inject(DOCUMENT) private document:Document, private render:Renderer2  ) { }
+               ) { }
 
 
   public checkForUserToken(){
@@ -37,9 +35,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    //apply default theme
-    this.render.addClass(this.document.body,'purple-mid');
-
     //check for user token on page load
     this.checkForUserToken();
   }
