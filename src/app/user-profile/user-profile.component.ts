@@ -23,7 +23,9 @@ export class UserProfileComponent {
 
   //pull user data in from local storage and sets local variable values
   setUserData(){
-    this.userService.parseUser();
+    if (this.firstName=="") {
+      this.userService.parseUser();
+    }    
     this.firstName = this.userService.firstName;
     this.lastName = this.userService.lastName;
     this.email = this.userService.email;

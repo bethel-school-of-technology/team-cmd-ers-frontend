@@ -1,0 +1,29 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  /* background: inherit; */
+  background-color: #640058;
+  color:whitesmoke;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.menu-btn, .nav-item {
+  flex: 1 1 auto;
+}
+
+.alt-primary {
+  background-color: #640058;
+    color:whitesmoke;
+}
+

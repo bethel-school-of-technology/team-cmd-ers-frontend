@@ -4,6 +4,7 @@ import { DailyQuotesService } from '../services/daily-quotes.service';
 import { Goal } from '../models/goal';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,9 +26,10 @@ export class DashboardComponent implements OnInit {
   email: string = "";
 
   constructor(private goalService: GoalService, private dailyQuotes: DailyQuotesService, 
-              private router: Router, private userService: UserService) { }
+              private router: Router, private userService: UserService, private app:AppComponent) { }
 
   ngOnInit(): void{
+    this.app.checkForUserToken();
     this.goalService.getAllGoals().subscribe(response => {
       // console.log(response);
       this.userGoals = response;

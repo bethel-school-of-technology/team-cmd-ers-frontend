@@ -19,6 +19,13 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatLabel } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { SignInDialogComponent } from './sign-in-dialog/sign-in-dialog.component';
+import { GeneralNavComponent } from './general-nav/general-nav.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { UserNavComponent } from './user-nav/user-nav.component';
 
 
 @NgModule({
@@ -31,7 +38,9 @@ import { SignInDialogComponent } from './sign-in-dialog/sign-in-dialog.component
     CreateGoalComponent,
     // EditDialogComponent,
     UserProfileComponent,
-    SignInDialogComponent
+    SignInDialogComponent,
+    GeneralNavComponent,
+    UserNavComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +50,7 @@ import { SignInDialogComponent } from './sign-in-dialog/sign-in-dialog.component
     NoopAnimationsModule,
     GoalDetailComponent,
     MatDialogModule,  
-    MatGridListModule,
+    MatGridListModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
      
   ],
   providers: [
