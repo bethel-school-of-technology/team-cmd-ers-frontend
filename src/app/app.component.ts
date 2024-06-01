@@ -1,22 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { UserService } from './services/user.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+
 import { SignInDialogComponent } from './sign-in-dialog/sign-in-dialog.component';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'angular-starter';
   public email: string = '';
   public password: string = '';
 
   hasUserToken: boolean = this.checkForUserToken();
 
-  constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
+  constructor(private userService: UserService, private router: Router, public dialog: MatDialog,
+               ) { }
 
 
   public checkForUserToken(){
@@ -31,6 +35,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+    //check for user token on page load
     this.checkForUserToken();
   }
   // signin(){

@@ -47,7 +47,7 @@ export class GeneralNavComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(SignInDialogComponent, {
-      data: {email: this.email, password: this.password}, height: "200px", width: "300px",
+      data: {email: this.email, password: this.password}, height: "404px", width: "250px",
     });
 
     dialogRef.afterClosed().subscribe(result => {

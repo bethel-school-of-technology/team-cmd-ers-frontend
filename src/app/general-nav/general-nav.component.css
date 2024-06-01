@@ -3,13 +3,24 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 150px;
+  background-color: #ce93d8;
 }
 
 .sidenav .mat-toolbar {
-  /* background: inherit; */
-  background-color: #640058;
+  background: inherit;
+}
+
+.mat-sidenav-content {
+  font-family: Finlandica;
   color:whitesmoke;
+}
+
+.mat-toolbar .prof-title{
+  font-family: Finlandica;
+  font-weight: 800;
+  font-size: large;
+  color:#4a148c
 }
 
 .mat-toolbar.mat-primary {
@@ -20,10 +31,10 @@
 
 .menu-btn, .nav-item {
   flex: 1 1 auto;
+  
 }
 
-.alt-primary {
-  background-color: #640058;
-    color:whitesmoke;
+#app-name {
+  font-size: xx-large;
+  font-family: Finlandica;
 }
-

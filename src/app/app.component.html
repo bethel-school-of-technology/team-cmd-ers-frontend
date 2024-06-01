@@ -45,26 +45,52 @@
    
   </div>
 </nav> -->
+
+<!-- wrapper/container for the whole app.component template -->
 <div class="app-wrapper">
+  <!-- header area -->
   <div class="header">
     <app-general-nav *ngIf="!hasUserToken"></app-general-nav>
     <app-user-nav *ngIf="hasUserToken"></app-user-nav>
   </div>
 
+  <!-- main content area -->
   <div class="main-content">
+    <!-- mat-diviers and section added for color theme testing -->
+    <!-- <mat-divider></mat-divider>
+    <section>
+      <div class="example-label">Raised</div>
+      <div class="example-button-row">
+        <button mat-raised-button >Basic</button>
+        <button mat-raised-button color="primary">Primary</button>
+        <button mat-raised-button color="accent">Accent</button>
+        <button mat-raised-button color="warn">Warn</button>
+        <button mat-raised-button disabled>Disabled</button>
+        <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+      </div>
+    </section>
+    <mat-divider></mat-divider> -->
+    
     <router-outlet></router-outlet>
   </div>
 
   <!-- <nav id="footer" class="navbar float-bottom"> -->
-  <nav class="footer">
-    <div class="container-fluid">
-      <ng-content select="[slot='footer']"/>
-        <a class="navbar-brand">CREATED BY Ryan Dorrell, Jonathan Ford & Jordan Boller</a> <br/>
-        <a class="nav-linkVerse">“But I discipline my body and keep it under control, lest after preaching to others I
-          myself should be disqualified.” 1 Corinthians 9:27</a>
-    
-    </div>
-  </nav>
+  <!-- footer area -->
+    <mat-toolbar class="footer" color="primary">
+      <ng-content select="[slot='footer']" />
+      
+      <mat-toolbar-row>
+        <p class="nav-linkVerse" id="verse">“But I discipline my body and keep it under control, lest after preaching to others I
+          myself should be disqualified.”</p>
+        <p class="nav-linkverse" id="verse-ref">- 1 Corinthians 9:27</p>
+      </mat-toolbar-row>   
+
+      <mat-toolbar-row>
+        <p class="nav-brand">CREATED BY Ryan Dorrell, Jonathan Ford & Jordan Boller</p>
+      </mat-toolbar-row>
+
+    </mat-toolbar>
+  
 </div>
 
 

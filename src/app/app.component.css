@@ -10,38 +10,41 @@
 
 .header {
     padding: 0rem;
-    background-color: #640058;
-    color:whitesmoke;
+    /* background-color: #640058;
+    color:whitesmoke; */
 }
 
 .main-content {
     flex: 1;
     padding: 1rem;
+    background-color: #e0f2f1;
 }
 
 .footer {
-    height: 50px;
-    background-color: #640058;
-    color:whitesmoke;
-    padding: 1rem;
+    max-height: 75px;
+    padding-top: .5rem;
+    font-size: large;
+    font-family: Finlandica;
 }
 
-#navbarNav {
-    margin-left: 20%;
-    color: black;
-}
 
-.nav-linkVerse {
-    font-size: 20px;
+
+.nav-linkVerse, .nav-brand {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    min-width: 75%;
     margin-right: 30px;
     color: whitesmoke;
-    font-size: 15px;
+    font-size: 12px;
+    text-wrap: wrap;
+    text-align: center;
 }
 
-.navbar-brand {
-    
-    margin-left: 90px;
-    padding-top: 80px;
-    font-size: 10px;
+#verse {
+    font-size: 14px;
+}
+
+#verse-ref {
+    font-size: medium;;
+    justify-content: end;
+    text-wrap: wrap;
 }
