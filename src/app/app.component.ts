@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,47 +14,63 @@ export class AppComponent {
   public email: string = '';
   public password: string = '';
 
+  hasUserToken: boolean = this.checkForUserToken();
+
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
 
 
-  signin(){
-    // console.log(this.email, this.password);
+  public checkForUserToken(){
+    let test: any = localStorage.getItem('token');
+    console.log("checking: ", test);
+    if (test==null){
+      return false;
+    } else {
+      return true;
+    }
     
-        this.userService.signIn(this.email, this.password).subscribe((response:any) => {
-          console.log("response", response);
-          this.router.navigateByUrl('/dashboard');
-        }, error => {
-          console.log('Error: ', error);
-          window.alert('Unsuccessful Login');
-          // this.router.navigateByUrl('/home');
-        });
-      }
+  }
+
+  ngOnInit(): void {
+    this.checkForUserToken();
+  }
+  // signin(){
+  //   // console.log(this.email, this.password);
+    
+  //       this.userService.signIn(this.email, this.password).subscribe((response:any) => {
+  //         console.log("response", response);
+  //         this.router.navigateByUrl('/dashboard');
+  //       }, error => {
+  //         console.log('Error: ', error);
+  //         window.alert('Unsuccessful Login');
+  //         // this.router.navigateByUrl('/home');
+  //       });
+  //     }
   
   
-  openDialog(): void {
-    const dialogRef = this.dialog.open(SignInDialogComponent, {
-      data: {email: this.email, password: this.password}, height: "200px", width: "300px",
-    });
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(SignInDialogComponent, {
+  //     data: {email: this.email, password: this.password}, height: "200px", width: "300px",
+  //   });
 
-    dialogRef.afterClosed().subscribe(result => {
-      // console.log('The dialog was closed', result.data.email, result.data.password);
-      this.email = result.data.email;
-      this.password = result.data.password;
-      this.signin();
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     // console.log('The dialog was closed', result.data.email, result.data.password);
+  //     this.email = result.data.email;
+  //     this.password = result.data.password;
+  //     this.signin();
+  //   });
+  // }
 
-  signOut(): void {
-    // call user service to signout and reroute to Home page
-    this.userService.signOut();
-    this.homeRoute();
-  }
+  // signOut(): void {
+  //   // call user service to signout and reroute to Home page
+  //   this.userService.signOut();
+  //   this.homeRoute();
+  // }
 
 
-  //method for routing to the home page
-  homeRoute(){
-    console.log("routing to home page");
-    this.router.navigate(['home']);
-  }
+  // //method for routing to the home page
+  // homeRoute(){
+  //   console.log("routing to home page");
+  //   this.router.navigate(['home']);
+  // }
 
 }

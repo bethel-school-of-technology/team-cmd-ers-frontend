@@ -1,5 +1,29 @@
-#footer {
+/* #footer {
     background-color: #640058;
+    color:whitesmoke;
+} */
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    padding: 0rem;
+    background-color: #640058;
+    color:whitesmoke;
+}
+
+.main-content {
+    flex: 1;
+    padding: 1rem;
+}
+
+.footer {
+    height: 50px;
+    background-color: #640058;
+    color:whitesmoke;
+    padding: 1rem;
 }
 
 #navbarNav {
@@ -11,7 +35,7 @@
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-right: 30px;
-    color: black;
+    color: whitesmoke;
     font-size: 15px;
 }
 

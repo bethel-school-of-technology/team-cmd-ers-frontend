@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { EditDialogComponent, EditsData } from '../edit-dialog/edit-dialog.component';
 import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 
 export interface DialogData {
@@ -28,6 +29,8 @@ export class GoalDetailComponent {
   name?: string;
   description?: string;
 
+  firstname: string = "";
+
   curGoal: Goal = new Goal();
 
   goal_id: number = 0;
@@ -35,7 +38,7 @@ export class GoalDetailComponent {
   prevProgress?: number = 0;
 
   constructor(private activeRoute:ActivatedRoute, private goalService: GoalService, public dialog:MatDialog,
-              private router:Router){ }
+              private router:Router, private userService: UserService){ }
 
   //opens the edit-dialog box/component to allow user edits to goal name and description 
   openDialog(): void {
@@ -103,6 +106,7 @@ export class GoalDetailComponent {
     console.log(this.goal_id);
 
     this.getGoal();
+    this.firstname = this.userService.firstName;
 
     
   }
