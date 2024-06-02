@@ -28,21 +28,21 @@ export class DashboardComponent implements OnInit {
   constructor(private goalService: GoalService, private dailyQuotes: DailyQuotesService, 
               private router: Router, private userService: UserService, private app:AppComponent) { }
 
-  ngOnInit(): void{
-    this.app.checkForUserToken();
+  async ngOnInit(): Promise<void>{
+    this.localStorageCheck('token');
+    await this.setUserData();
     this.goalService.getAllGoals().subscribe(response => {
       // console.log(response);
       this.userGoals = response;
     })
-    this.getDailyQuote();
-
-    this.setUserData();
-
+    
+    await this.getDailyQuote();
+    
   }
 
   //pulls user data in from local storage and sets local variable values
-  setUserData(){
-    this.userService.parseUser();
+  async setUserData(){
+    await this.userService.setUpUserData();
     this.firstName = this.userService.firstName;
     this.lastName = this.userService.lastName;
     this.email = this.userService.email;
