@@ -36,7 +36,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     //check for user token on page load
-    this.checkForUserToken();
+    //this.checkForUserToken();
   }
   // signin(){
   //   // console.log(this.email, this.password);
