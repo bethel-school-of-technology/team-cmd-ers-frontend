@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { tap, Observable } from 'rxjs';
+import { tap, Observable, firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,23 +35,24 @@ export class UserService {
   }
 
   //separate method for sequentially logging and then parsing user data
-  setUpUserData(){
-    this.logUser();
+  async setUpUserData(){
+    await this.logUser();
     this.parseUser();
   }
 
   //method for getting the user data from the back-end and logging it to the local storage
-  logUser(){
+  async logUser(){
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.userToken)}`
     }
     // console.log("printing:");
     
-    return this.http.get<User>(`${this.baseURL}/user`,{headers:reqHeaders}).subscribe(response =>{console.log("inner:");
-      // console.log(response.firstName, response.lastName, response.email); 
-      const userdata = JSON.stringify(response);
-      localStorage.setItem('user', userdata);
-    });      
+    const response = await firstValueFrom(this.http.get<User>(`${this.baseURL}/user`, { headers: reqHeaders }));
+    console.log("inner:");
+    console.log(response);
+
+    const userdata = JSON.stringify(response);
+    localStorage.setItem('user', userdata);  
   }
 
   //method for pulling the user data from local storage and setting local variable values
