@@ -1,50 +1,93 @@
+
+.quote-card-container {
+    background-color: #d1c4e9;
+    border: 4px double #7b1fa2;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-family: "Fjord One", serif;
+    
+}
+#quote-text{
+    padding-top: 1%;
+    padding-left: 2%;
+}
+#quote-author {
+    text-align: right;
+    padding-right:5%;
+}
+
 #dashName {
-    margin: 5px 10px;
+    margin: 1% 15%;
+    color: #640058;
+    font-family: 'Finlandica', 'sans-serif';
+    font-size:x-large;
+    font-weight: 600;
 }
-.dashTabs {
-    border-bottom: 2px solid #640058;
-    display: flex;
+
+.main-content {
+    font-family: 'Finlandica', 'sans-serif';
+}
+.goal-head {
+    display:flex;
     flex-direction: row;
-    margin: 0px 10px;
+    justify-content: space-evenly;
+    padding: 0 5%;
+    /* flex: 1 1 auto; */
 }
-.tabItems {
-    display: inline-block;
-    margin: 0px 5px;
-    width:fit-content;
+#goal-heading {
+    color:#004d40;
+    font-size: xx-large;
 }
-ul{
-    margin:3px;
+#new-btn {
+    width: 60px;
+    align-items: right;
+    font-size: xx-large;
+    font-weight: 600;
+}
 
+.goal-list {
+    margin: 0px;
+    padding: 0px;
+    
 }
-.header {
-    border-bottom: 2px solid #640058;
-    width: 25%;
+.responsive-grid {
+    --grid-cols: 1;
+    --grid-row-height: 1:1;
+}
+@media (min-width:600px){
+    .responsive-grid {
+        --grid-col:2;
+        --grid-row-height: 1:1;
+    }
+}
+mat-grid-list {
+    --mat-grid-list-cols: var(--grid-cols);
+    --mat-grid-list-row-height: var(--grid-row-height);
 }
 
-
-
-.card {
-    margin: 10px auto;
-    width: 70%;
-    color: #640058;
+.goal-card{
+    width: 90%;
+    min-height: 150px;
+    background-color: #d1c4e9;
+    border: 4px double #00897b;
+    border-radius: 10px;
+    color: #004d40;
 }
-.new-btn {
-    margin-left: 80%;
-    color: #640058;
+.goal-title {
+    font-size: x-large;
+    display: flex;
+    justify-content: space-between;
 }
-.goal-details-btn {
-    margin-left: 70%;
-    color: #640058;
+#delete-btn {
+    width: 10px;
+    height: 10px;
 }
-/* .delete-btn {
-    width: 200px;
-    color: #640058;
-} */
-
-.dash-greeting {
-    margin-left: 10%;
-    color: #640058;
+.goal-progress {
+    font-family: 'Fjord One', 'serif';
+    margin: 5px auto;
 }
-/* #exit {
-    margin-left: 97.5%;
-} */
+.fab-small {
+    width: 35px;
+    height: 35px;
+    font-size: 10px;
+  }
