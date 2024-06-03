@@ -26,6 +26,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UserNavComponent } from './user-nav/user-nav.component';
+import { MatCardModule, MatCard } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import { UserNavComponent } from './user-nav/user-nav.component';
     GoalDetailComponent,
     MatDialogModule,  
     MatGridListModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
+    MatCardModule, MatTooltipModule,
      
   ],
   providers: [

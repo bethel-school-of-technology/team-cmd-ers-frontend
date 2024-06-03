@@ -1,45 +1,40 @@
 <div id="dash">
+    <mat-card class="quote-card-container">
+        <p class="quote-card" id="quote-text">{{this.quote}}</p>
+        <p class="quote-card" id="quote-author"> -- {{this.author}}</p>
+    </mat-card>
+
     <header id="dashName">Hello -- {{firstName}} -- </header>
-    <!-- <nav class="dashTabs js-nav" >
-        <ul>
-            <li class="tabItems" routerLink="/user-profile">profile info</li>
-            <li class="tabItems" routerLink="/dashboard">dashboard</li>
-            <li class="tabItems" (click)="stats()">stats</li>
-        </ul>
-    </nav> -->
+   
 
     <div>
-        <p>
-            {{this.quote}} -- {{this.author}}
-        </p>
+        
     </div>
     <br>
     <div class="main-content">
-        <button class="new-btn" routerLink="/create-goal">Create New Goal</button>
-        <div *ngFor="let g of userGoals">
-            <div class="card" style="width: 60rem; height: 20rem;">
-                <!-- <i class="bi bi-x-lg"></i> -->
-
-                <div class="card-body">
-                    <h1>My Goal: {{g.name}}</h1>
-                    <h4>goal Id: {{g.id}}</h4>
-                    <p class="card-text">{{g.description}}</p>
-                    <h2>Progress:   {{calcProgress(g)}}%</h2>
-                    <!-- <h2>Progress: {{g.progress/g.goalToReach}}%</h2> -->
-                </div>
-               
-        <div class="row">
-            <div class="col">
-            <button class="goal-details-btn" routerLink="/goal-detail/{{g.id}}">My Goal Details</button>
-                    </div>
-            <div class="col">
-            <button class="delete-btn" (click)="deleteGoal(g.id)">Delete Goal</button>
-            </div>
+        <div class="goal-head"> 
+            <h2 class="goal-head" id="goal-heading">My Goals: </h2>
+            <button mat-raised-button matTooltip="add new goal" color="accent" 
+                class="goal-head" id="new-btn" routerLink="/create-goal"> + </button>
         </div>
-       
-            </div>
-        </div>
-
+        
+        <mat-grid-list [cols]="gridCols" [rowHeight]="gridRowHeight" gutterSize="8px" class="goal-list responsive-grid" >
+            <mat-grid-tile *ngFor="let g of userGoals">
+                <mat-card class="goal-card" >
+                    <mat-card-header class="goal-title">
+                        <mat-card-title class="goal-title" routerLink="/goal-detail/{{g.id}}">{{g.name}}</mat-card-title>
+                        <button mat-fab matTooltip="delete this goal" class="fab-small" 
+                            color="accent" (click)="deleteGoal(g.id)">
+                            <mat-icon >delete</mat-icon>
+                        </button>
+                    </mat-card-header>
+                    <mat-card-content class="goal-progress" routerLink="/goal-detail/{{g.id}}">
+                        <!-- place code for pie chart here -->
+                        <p>Progress:   {{calcProgress(g)}}%</p>
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
         
     </div>
 </div>

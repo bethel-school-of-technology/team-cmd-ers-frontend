@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { GoalService } from '../services/goal.service';
 import { DailyQuotesService } from '../services/daily-quotes.service';
 import { Goal } from '../models/goal';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -25,10 +26,15 @@ export class DashboardComponent implements OnInit {
   lastName: string = "";
   email: string = "";
 
+  //variables for the mat-grid-list tiling based on the window size
+  gridCols: number = 1;
+  gridRowHeight: string = "1:1";
+
   constructor(private goalService: GoalService, private dailyQuotes: DailyQuotesService, 
               private router: Router, private userService: UserService, private app:AppComponent) { }
 
   async ngOnInit(): Promise<void>{
+    this.setGridLayout(window.innerWidth);   //initiate window size adjustments for thr grid list
     this.localStorageCheck('token');
     await this.setUserData();
     this.goalService.getAllGoals().subscribe(response => {
@@ -38,6 +44,25 @@ export class DashboardComponent implements OnInit {
     
     await this.getDailyQuote();
     
+  }
+
+  //add an event listener to get the window size
+  @HostListener('window:resize',[`$event`]) onResize(event:any){
+    this.setGridLayout(event.target.innerWidth);
+  }
+
+  //set grid columns and rows variables based on the window size
+  setGridLayout(width: number){
+    if (width < 600) {
+      this.gridCols = 1;
+      this.gridRowHeight = '2:1';
+    } else if (width >= 600 && width < 960) {
+      this.gridCols = 2;
+      this.gridRowHeight = '2:1';
+    } else  {
+      this.gridCols = 3;
+      this.gridRowHeight = '2:1';
+    }
   }
 
   //pulls user data in from local storage and sets local variable values
