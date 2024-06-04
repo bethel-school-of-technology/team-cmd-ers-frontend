@@ -1,40 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
 .sidenav-container {
-  height: 100%;
+  height: auto;
 }
 
 .sidenav {
   width: 150px;
-  background-color: #ce93d8;
+  background-color: #ce93d8;  
+  font-family: 'Finlandica','sans-serif';
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-sidenav-content {
-  font-family: Finlandica;
-  color:whitesmoke;
-}
-
-.mat-toolbar .prof-title{
-  font-family: Finlandica;
+mat-toolbar.prof-title{
+  font-family: 'Finlandica','sans-serif';
   font-weight: 800;
   font-size: large;
-  color:#4a148c
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  color:#4a148c;
+  background-color: #ce93d8;  
+  
 }
 
 .menu-btn, .nav-item {
   flex: 1 1 auto;
-  
+  color: #e0f2f1;
+}
+mat-icon {
+  color:#e0f2f1;
 }
 
 #app-name {
   font-size: xx-large;
-  font-family: Finlandica;
+  font-family:'Finlandica', 'sans-serif';
 }
