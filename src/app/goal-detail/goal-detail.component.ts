@@ -87,7 +87,7 @@ export class GoalDetailComponent {
   getGoal(): void {
     // fetch the goal that matches the id
     this.goalService.getGoalById(this.goal_id).subscribe( response => {
-      console.log("response",response);
+      // console.log("response",response);
       this.assignGoal(response);
       // this.prevProgress = this.curGoal.userProgress;
       

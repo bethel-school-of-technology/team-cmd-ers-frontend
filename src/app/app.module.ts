@@ -31,6 +31,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
+import { DailyInputsChartComponent } from './daily-inputs-chart/daily-inputs-chart.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { MatTableModule } from '@angular/material/table';
     SignInDialogComponent,
     GeneralNavComponent,
     UserNavComponent,
-    GoalDetailComponent
+    GoalDetailComponent,
+    DailyInputsChartComponent,
   ],
   imports: [
     BrowserModule,

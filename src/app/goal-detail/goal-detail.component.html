@@ -37,8 +37,10 @@
                 <mat-card-title class="fjord-one-1">Goal Progress:</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <p>Current Progress:</p> 
-                <table >
+                <p>Current Progress:</p>
+                
+                <app-daily-inputs-chart></app-daily-inputs-chart>
+                <!-- <table >
                     <div>
                         <tr class="table-head">
                             <th>number</th>
@@ -52,7 +54,7 @@
                         </tr>
                     </div>
                 </table>
-                <button mat-raised-button color="primary" (click)="getProgressLog()">Log</button>
+                <button mat-raised-button color="primary" (click)="getProgressLog()">Log</button> -->
             </mat-card-content>
         </mat-card>
         <br>
