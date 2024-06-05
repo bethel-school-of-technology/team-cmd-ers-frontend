@@ -28,6 +28,7 @@ import { MatListModule } from '@angular/material/list';
 import { UserNavComponent } from './user-nav/user-nav.component';
 import { MatCardModule, MatCard, MatCardHeader,MatCardTitle } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -53,7 +54,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     NoopAnimationsModule,
     MatDialogModule,  
     MatGridListModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
-    MatCardModule,MatTooltipModule,
+    MatCardModule,MatTooltipModule, MatTableModule
      
   ],
   providers: [

@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
     this.localStorageCheck('token');
     await this.setUserData();
     this.goalService.getAllGoals().subscribe(response => {
-      // console.log(response);
+      console.log(response);
       this.userGoals = response;
     })
     
