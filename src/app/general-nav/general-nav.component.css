@@ -23,13 +23,24 @@ mat-toolbar.prof-title{
 
 .menu-btn, .nav-item {
   flex: 1 1 auto;
+  text-align: center;
   color: #e0f2f1;
 }
+
 mat-icon {
   color:#e0f2f1;
 }
 
 #app-name {
   font-size: xx-large;
-  font-family:'Finlandica', 'sans-serif';
+  font-family: 'Finlandica', 'sans-serif';
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+.logo:hover {
+  cursor: pointer;
 }

@@ -28,6 +28,8 @@ import { MatListModule } from '@angular/material/list';
 import { UserNavComponent } from './user-nav/user-nav.component';
 import { MatCardModule, MatCard, MatCardHeader,MatCardTitle } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -52,9 +54,17 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     FormsModule,
     NoopAnimationsModule,
     MatDialogModule,  
-    MatGridListModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
-    MatCardModule,MatTooltipModule,
-     
+    MatGridListModule, 
+    MatToolbarModule, 
+    MatButtonModule, 
+    MatSidenavModule, 
+    MatIconModule, 
+    MatListModule,
+    MatCardModule, 
+    MatTooltipModule,
+    MatInputModule,
+    MatFormFieldModule
+
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
