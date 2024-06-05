@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateGoalComponent } from './create-goal/create-goal.component';
 import { GoalDetailComponent } from './goal-detail/goal-detail.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
@@ -26,7 +26,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UserNavComponent } from './user-nav/user-nav.component';
-import { MatCardModule, MatCard } from '@angular/material/card';
+import { MatCardModule, MatCard, MatCardHeader,MatCardTitle } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -44,7 +44,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     UserProfileComponent,
     SignInDialogComponent,
     GeneralNavComponent,
-    UserNavComponent
+    UserNavComponent,
+    GoalDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HttpClientModule,
     FormsModule,
     NoopAnimationsModule,
-    GoalDetailComponent,
     MatDialogModule,  
     MatGridListModule, 
     MatToolbarModule, 
@@ -64,6 +64,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTooltipModule,
     MatInputModule,
     MatFormFieldModule
+
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

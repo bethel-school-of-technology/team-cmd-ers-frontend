@@ -26,12 +26,16 @@ export class UserProfileComponent {
     if (this.firstName=="") {
       this.userService.parseUser();
     }    
-    this.firstName = this.userService.firstName;
-    this.lastName = this.userService.lastName;
+    this.firstName = this.capitalizeFirstLetter(this.userService.firstName);
+    this.lastName = this.capitalizeFirstLetter(this.userService.lastName);
     this.email = this.userService.email;
     // console.log("dash set user:",this.email);
   }
 
+   //make sure the first letter of the name is capitalized.
+   capitalizeFirstLetter(text: string){
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
 
   //method for routing to the dashboard
   dashRoute(){

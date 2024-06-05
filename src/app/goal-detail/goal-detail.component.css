@@ -1,53 +1,67 @@
+* {
+    font-family: 'Finlandica', 'sans-serif';
+}
 #dashName {
-    margin: 5px 10px;
+    margin: 1% 15%;
+    color: #640058;
+    font-family: 'Finlandica', 'sans-serif';
+    font-size:xx-large;
+    font-weight: 600;
 }
-.dashTabs {
-    border-bottom: 2px solid #640058;
-    display: flex;
-    flex-direction: row;
-    margin: 0px 10px;
-}
-.tabItems {
-    display: inline-block;
-    margin: 0px 5px;
-    width:fit-content;
-}
-ul{
-    margin:3px;
 
-}
-.header {
-    border-bottom: 2px solid #640058;
-    width: 25%;
+.container {
+    border: 2px solid #4a148c;
+    border-radius: 10px;
+    width: 75%;
+    padding-top:10px;
+    padding-bottom: 10px;
+    background-color: #ce93d8 ;
 }
 
 .card {
     margin: 5px auto;
     height: fit-content;
-    color: #640058;
-}
-.card-body {
-    margin: opx;
+    background-color: #d1c4e9;
+    color: #004d40;
+    border: 2px solid #004d40;
+    border-radius: 10px;
+    width: 80%;
 }
 
 .goalDetailHead {
-    color: #640058;
+    margin: 5px auto;
     text-align: center;
+    background-color: #d1c4e9;
+    color: #004d40;
+    font-size: x-large;
+    font-weight: 600;
+    border: 2px solid #004d40;
+    border-radius: 10px;
+    min-width: fit-content;
+    max-width: 50%;
 }
-#todaysNumbers {
-    width: 40%;
+
+mat-card-content {
+    padding-left:15%;
 }
-.numbersBTN {
-    width: 90px;
-    margin-left: 70%;
-    /* color: #640058; */
+
+.btn {
+    width: 60px;
+    height: 30px;
 }
-.editBTN {
-    width: 90px;
-    margin-left: 40%;
-    /* color: #640058; */
+.edit-btn {
+    display:flex;
+    justify-content:end;
+    padding-right: 15px;
 }
-.mat-primary{
-    background-color: #640058;
-    color: whitesmoke;
+.sub-btn {
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
+
+.fjord-one-1 {
+    font-family: "Fjord One", serif;
+    font-weight: 400;
+    font-style: normal;
+    }

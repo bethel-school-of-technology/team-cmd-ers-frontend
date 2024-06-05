@@ -1,54 +1,47 @@
 <div id="dash">
-    <header id="dashName">Hello -- {{this.firstname}} --</header>
-    <!-- <nav class="dashTabs js-nav" >
-        <ul>
-            <li class="tabItems" (click)="profileRoute()">profile info</li>
-            <li class="tabItems" (click)="dashRoute()">dashboard</li>
-            <li class="tabItems" (click)="stats()">stats</li>
-        </ul>
-    </nav> -->
+    <header id="dashName"> {{this.firstname}}, here are the details for:</header>
+    
+    
     <br>
-    <h1 class="goalDetailHead">My Goal: {{this.name}}</h1>
 
-    <br>
-    <div class="card" style="width: 37rem; height: 8rem;">
-        <div class="card-body">Description
-            <p>{{this.description}}</p>        
-            <!-- trigger dialog box for editing the description -->
-            <div class="container">
-                <div class="row">
-                    <p class="col">Goal: {{curGoal.goalToReach}}</p>
-                    <div class="col">
-                    <button class="editBTN" type="button" color="primary" mat-raised-button (click)="openDialog()">
-                        Edit
-                    </button>   
-                    </div> 
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <mat-card class="goalDetailHead">
+            <mat-card-title > {{this.name}} </mat-card-title>
+        </mat-card>
+       
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-title class="fjord-one-1">Description:</mat-card-title>
+            </mat-card-header>
+            <mat-card-content> {{this.description}} 
+                <mat-card-subtitle>Goal to Reach: {{curGoal.goalToReach}}</mat-card-subtitle></mat-card-content>
+            <mat-card-actions class="edit-btn">
+                <button mat-raised-button class="btn" color="accent" (click)="openDialog()">Edit</button>
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-subtitle class="fjord-one-1">Record Today's Numbers:</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <form #progForm="ngForm" class="sub-btn" (ngSubmit)="updateProgress(progForm)">
+                    <input type="number" name="todaysNumbers"  placeholder="daily number(s)" ngModel>
+                    <button type="submit" class="btn " mat-raised-button color="accent">submit</button>
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-title class="fjord-one-1">Goal Progress:</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Current Progress: {{this.prevProgress}}</p>
+            </mat-card-content>
+        </mat-card>
+    
+
     </div>
 
-
-    <br>
-    <div class="card" style="width: 37rem; height: 8rem;">
-        <div class="card-body">
-            <form #progForm="ngForm" (ngSubmit)="updateProgress(progForm)">
-                <label for="numbers" class="form-label">Todays Numbers</label>
-        
-                <input type="number" class="form-control" name="todaysNumbers" placeholder="" ngModel >
-
-                <button type="submit" class="numbersBTN" color="primary" mat-raised-button>Submit</button>
-            </form>
-
-        </div>
-    </div>
-    <br>
-    <div class="card" style="width: 37rem; height: 8rem;">
-        <div class="card-body">
-            Previous Days Numbers
-            <p>Current Progress: {{this.prevProgress}}</p>
-        </div>
-    </div>
-    <br>
-</div>
-
+ 

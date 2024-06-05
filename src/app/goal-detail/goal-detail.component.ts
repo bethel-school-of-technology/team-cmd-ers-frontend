@@ -3,10 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Goal } from '../models/goal';
 import { GoalService } from '../services/goal.service';
 import { MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
+// import { MatButtonModule } from '@angular/material/button';
 import { EditDialogComponent, EditsData } from '../edit-dialog/edit-dialog.component';
 import { Router } from '@angular/router';
-import { FormsModule, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
 
 
@@ -18,11 +18,9 @@ export interface DialogData {
 @Component({
   selector: 'app-goal-detail',
   templateUrl: './goal-detail.component.html',
-  styleUrls: ['./goal-detail.component.css'],
-  standalone: true,
-  imports: [MatButtonModule,
-            FormsModule
-  ],
+  styleUrls: ['./goal-detail.component.css'
+ 
+  ]
 })
 export class GoalDetailComponent {
 
@@ -88,11 +86,11 @@ export class GoalDetailComponent {
   //use this for updating daily progress toward the goal
   //still needs to be completed after implementing data array
   updateProgress(form: NgForm): void{
-    // console.log("prog update",form.value.todaysNumbers);
+    console.log("prog update",form.value);
     let todaysNum: number = form.value.todaysNumbers;
     this.prevProgress = this.curGoal.userProgress;
     this.curGoal.userProgress = todaysNum;
-    // console.log(this.prevProgress,"|",this.curGoal.userProgress);
+    console.log(this.prevProgress,"|",this.curGoal.userProgress);
     this.goalService.updateGoal(this.curGoal).subscribe(result =>{
       console.log(result);
     });
@@ -106,9 +104,21 @@ export class GoalDetailComponent {
     console.log(this.goal_id);
 
     this.getGoal();
-    this.firstname = this.userService.firstName;
+    this.setUserData();
 
     
+  }
+
+  async setUserData(){
+    await this.userService.setUpUserData();
+    this.firstname = this.capitalizeFirstLetter(this.userService.firstName);
+    
+    // console.log("dash set user:",this.email);
+  }
+
+   //make sure the first letter of the name is capitalized.
+   capitalizeFirstLetter(text: string){
+    return text.charAt(0).toUpperCase() + text.slice(1);
   }
 
   //method for routing to the dashboard
