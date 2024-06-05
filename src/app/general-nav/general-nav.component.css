@@ -31,10 +31,19 @@
 
 .menu-btn, .nav-item {
   flex: 1 1 auto;
-  
+  text-align: center;
 }
 
 #app-name {
   font-size: xx-large;
   font-family: Finlandica;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+.logo:hover {
+  cursor: pointer;
 }
