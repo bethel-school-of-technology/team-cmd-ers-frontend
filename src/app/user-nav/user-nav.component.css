@@ -32,6 +32,7 @@
 .menu-btn, .nav-item {
   flex: 1 1 auto;
   color: #e0f2f1;
+  text-align: center;
 }
 mat-icon {
   color: #e0f2f1;
@@ -40,4 +41,13 @@ mat-icon {
 #app-name {
   font-size: xx-large;
   font-family: 'Finlandica', 'sans-serif';
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+.logo:hover {
+  cursor: pointer;
 }
