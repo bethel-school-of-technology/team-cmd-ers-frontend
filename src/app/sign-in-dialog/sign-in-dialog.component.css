@@ -1,0 +1,13 @@
+.body {
+    color: #004d40;
+    background-color: #d1c4e9;
+    height: 400px;
+    font-family: 'Finlandica', 'sans-serif';
+    text-align: center;
+    border: 7.5px double #640058;
+    padding: 50px 10px;
+}
+
+.input-div {
+    padding: 5px;
+}

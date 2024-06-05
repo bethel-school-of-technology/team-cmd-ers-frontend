@@ -17,19 +17,19 @@ export class AppComponent implements OnInit{
   public email: string = '';
   public password: string = '';
 
-  hasUserToken: boolean = this.checkForUserToken();
+  hasUserToken: boolean = false;
 
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog,
                ) { }
 
 
-  public checkForUserToken(){
+   public checkForUserToken(){
     let test: any = localStorage.getItem('token');
-    console.log("checking: ", test);
+    //console.log("checking: ", test);
     if (test==null){
-      return false;
+      this.hasUserToken = false;
     } else {
-      return true;
+      this.hasUserToken = true;
     }
     
   }
