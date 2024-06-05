@@ -55,7 +55,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     GoalDetailComponent,
     MatDialogModule,  
     MatGridListModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
-    MatCardModule, MatTooltipModule, 
+    MatCardModule, MatTooltipModule,
+    
+    
+
+
+
+
+    
     MatInputModule,
     MatFormFieldModule
   ],
