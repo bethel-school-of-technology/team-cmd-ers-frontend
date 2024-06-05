@@ -36,18 +36,19 @@ export class GeneralNavComponent {
     
         this.userService.signIn(this.email, this.password).subscribe((response:any) => {
           console.log("response", response);
+          this.app.checkForUserToken();
           this.router.navigateByUrl('/dashboard');
         }, error => {
           console.log('Error: ', error);
           window.alert('Unsuccessful Login');
           // this.router.navigateByUrl('/home');
         });
-        this.app.checkForUserToken();
       }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(SignInDialogComponent, {
-      data: {email: this.email, password: this.password}, height: "404px", width: "250px",
+      data: {email: this.email, password: this.password}, 
+      height: "400px", width: "400px"
     });
 
     dialogRef.afterClosed().subscribe(result => {
