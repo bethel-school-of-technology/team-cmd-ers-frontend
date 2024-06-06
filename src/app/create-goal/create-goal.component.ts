@@ -27,12 +27,16 @@ export class CreateGoalComponent {
   }
 
   //pull user data in from local storage and sets local variable values
-  setUserData(){
-    this.userService.parseUser();
-    this.firstName = this.userService.firstName;
-    this.lastName = this.userService.lastName;
-    this.email = this.userService.email;
+  async setUserData(){
+    await this.userService.setUpUserData();
+    this.firstName = this.capitalizeFirstLetter(this.userService.firstName);
+    
     // console.log("dash set user:",this.email);
+  }
+
+  //make sure the first letter of the name is capitalized.
+  capitalizeFirstLetter(text: string){
+    return text.charAt(0).toUpperCase() + text.slice(1);
   }
 
  
@@ -45,7 +49,7 @@ export class CreateGoalComponent {
   }
 
   //method for routing to the dashboard
-  dashRoute(){
+  async dashRoute(){
     console.log("routing to dashboard");
     this.router.navigate(['/dashboard']);
   }

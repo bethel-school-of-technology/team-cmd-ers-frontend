@@ -1,57 +1,48 @@
-<div id="dash">
-    <header id="dashName">Hello -- {{firstName}} --  Lets Set A New Goal! </header>
-    <!-- <nav class="dashTabs js-nav" >
-        <ul>
-            <li class="tabItems" (click)="profileRoute()">profile info</li>
-            <li class="tabItems" (click)="dashRoute()">dashboard</li>
-            <li class="tabItems" (click)="stats()">stats</li>
-        </ul>
-    </nav> -->
-<br>
-<!-- <button class="back" routerLink="/dashboard">Back to Dashboard</button> -->
-<h1 class="goalHead">Add a New Goal</h1>
-
-
-<form #goalForm="ngForm" (ngSubmit)="createNewGoal(goalForm.value)" class="card form-group" >
-
-    <div class="Creation-Input form-group">
-        <div class="form-floating mb-3">
-            <input type="goal-name" name="name" class="form-control" id="floatingInput" placeholder="name your goal" ngModel>
-            <label for="floatingInput">Goal Name</label>
-        </div>
-        
-        <div class="form-group">        
-            <select class="form-select" aria-label="Default select example" name="type" ngModel>
-                <option value="weight loss">Weight Loss</option>
-                <option value="lean and fit">Lean and Fit</option>
-                <option value="muscle bulk">Muscle Bulk</option>
-            </select>
-            <label for="type">Choose Goal Type</label>
-        </div>
-            <br>
-        
-
-        <div class="form-floating form-group">        
-            <textarea class="form-control" placeholder="Leave a goal description here" id="floatingTextarea2"
-                style="height: 100px" type="text" name="description" ngModel></textarea>
-            <label for="floatingTextarea2">Goal Description</label>
-        </div>
-        <br>
-        
-        <div class="form-floating form-group">
-            <input type="number" class="form-control" id="floatingGoal" placeholder="goal number to reach" name="goalToReach" ngModel>
-            <label for="floatingGoal">Goal</label>
-        </div>
-        <br>
-
-        <div class="form-floating form-group">
-            <input type="number" class="form-control" id="floatingGoal" placeholder="current progress to goal" name="userProgress" ngModel>
-            <label for="floatingGoal">Current Progress</label>
-        </div>
-
-        <button class="newGoalCreate" type="submit" >Create Goal</button>
-    </div>    
+<div id="create-goal">
+    <header id="create-goal-name"> {{firstName}},  Let's Set A New Goal! </header>
     
-</form>
+    <form class="form-div" #goalForm="ngForm" (ngSubmit)="createNewGoal(goalForm.value)"  >
+        <h1 class="goalHead">Create a New Goal</h1>
+        <div class="input-div">
+            <mat-form-field>
+                <mat-label >Goal Name</mat-label>
+                <input matInput class="input" type="text" name="name" placeholder="name your goal" ngModel>
+            </mat-form-field>
+        </div>
+            
+        <div class="input-div">        
+            <mat-form-field>
+                <mat-label>Choose Goal Type</mat-label>
+                <select matNativeControl class="input" placeholder="select a type" name="type" ngModel>
+                    <option value="weight loss">Weight Loss</option>
+                    <option value="lean and fit">Lean and Fit</option>
+                    <option value="muscle bulk">Muscle Bulk</option>
+                </select>
+            </mat-form-field>                
+        </div>
+        
+        <div class="input-div"> 
+            <mat-form-field>
+                <mat-label>Goal Description</mat-label>
+                <textarea matInput class="input" placeholder="Leave a goal description here" type="text" name="description" ngModel></textarea>
+            </mat-form-field>       
+        </div> 
+            
+        <div class="input-div">
+            <mat-form-field>
+                <mat-label>Goal to Reach</mat-label>
+                <input matInput class="input" type="number" placeholder="goal number to reach" name="goalToReach" ngModel>
+            </mat-form-field>                
+        </div> 
+
+        <div class="input-div">
+            <mat-form-field>
+                <mat-label>Current Progress</mat-label>
+                <input matInput class="input" type="number" placeholder="current progress to goal" name="userProgress" ngModel>
+            </mat-form-field>
+        </div> 
+
+        <button mat-raised-button id="sub-btn" color="accent" type="submit" >Create Goal</button>
+            
+    </form>
 </div>
-<!-- <button class="newGoalCreate" routerLink="/dashboard/:userId">Create Goal</button> -->
