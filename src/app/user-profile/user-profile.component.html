@@ -1,5 +1,5 @@
 <div id="profile">
-    <header id="profileName"> {{firstName}} {{lastName}} </header>
+    <header id="profileName"> {{firstName}} {{lastName}}, here is your profile: </header>
     <!-- <nav class="profileTabs js-nav" >
         <ul>
             <li class="tabItems" >profile info</li>
@@ -8,18 +8,16 @@
         </ul>
     </nav> -->
     <div class="main-content">
-        <h2 class="main-content header">About You</h2>
-        <form class="main-content">
+        <h2 class=" header">About You</h2>
+        <form class="form-div">
             <label>First Name</label>
             <input type="text" ng-Model="user.firstName" placeholder="{{firstName}}">
             <label>Last Name</label>
             <input type="text" ng-Model="user.lastName" placeholder="{{lastName}}">
-            <label> Username | Email</label>
+            <label>Email</label>
             <input type="email" ng-model="user.email" placeholder="{{email}}">
-            <!-- <label>Password</label>
-            <input type="password" ng-Model="user.password">
-            <br> -->
-            <!-- <button class="main-content">Save</button> -->
+            <br/>
+            <button mat-raised-button color="accent" id="save-btn" (click)="noSave()">Save</button>
             
         </form>
     </div>
