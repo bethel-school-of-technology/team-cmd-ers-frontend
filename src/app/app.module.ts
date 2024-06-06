@@ -32,6 +32,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { DailyInputsChartComponent } from './daily-inputs-chart/daily-inputs-chart.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { DailyInputsChartComponent } from './daily-inputs-chart/daily-inputs-cha
     MatTooltipModule, 
     MatTableModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatExpansionModule,
 
   ],
   providers: [

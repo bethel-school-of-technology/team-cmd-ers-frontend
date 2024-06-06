@@ -16,9 +16,6 @@ import { SignInDialogComponent } from '../sign-in-dialog/sign-in-dialog.componen
 
 })
 export class HomeComponent implements OnInit {
-  // public email: string = '';
-  // public password: string = '';
-
   
 
 
@@ -27,31 +24,9 @@ export class HomeComponent implements OnInit {
   
 
   ngOnInit(): void {
-  };
 
+  }
 
-//   signin(){
-// console.log(this.email, this.password);
-
-//     this.userService.login(this.email, this.password).subscribe((response:any) => {
-//       this.router.navigateByUrl('/dashboard');
-//     }, error => {
-//       console.log('Error: ', error);
-//       window.alert('Unsuccessful Login');
-//       // this.router.navigateByUrl('/home');
-//     });
-//   }
-
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(SignInDialogComponent, {
-  //     data: {email: this.email, password: this.password}, height: "200px", width: "300px",
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed', result);
-  //     // this. = result;
-  //   });
-  // }
 }
 
  

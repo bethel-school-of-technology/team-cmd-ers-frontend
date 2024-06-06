@@ -49,6 +49,15 @@ export class GoalDetailComponent {
               private router:Router, private userService: UserService, private goalInput: GoalInputService)
     { }
 
+    async ngOnInit(): Promise<any> {
+      // extracted the id from the url
+      this.goal_id = parseInt(this.activeRoute.snapshot.paramMap.get("goalId") ?? '0');
+      console.log(this.goal_id);
+  
+      await this.getGoal();
+      await this.setUserData();
+    }
+
   //opens the edit-dialog box/component to allow user edits to goal name and description 
   openDialog(): void {
     const dialogRef = this.dialog.open(EditDialogComponent, {
@@ -127,18 +136,7 @@ export class GoalDetailComponent {
       return this.progressLog;
   }
  
-
-
-  async ngOnInit(): Promise<any> {
-    // extracted the id from the url
-    this.goal_id = parseInt(this.activeRoute.snapshot.paramMap.get("goalId") ?? '0');
-    console.log(this.goal_id);
-
-    await this.getGoal();
-    await this.setUserData();
-
-    
-  }
+  
 
   async setUserData(){
     await this.userService.setUpUserData();

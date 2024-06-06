@@ -27,19 +27,31 @@
             <mat-card-content>
                 <form #progForm="ngForm" class="sub-btn" (ngSubmit)="logGoalProgress(progForm)">
                     <input type="number" name="todaysNumbers"  placeholder="daily number(s)" ngModel>
-                    <button type="submit" class="btn " mat-raised-button color="accent">submit</button>
+                    <button type="submit" class="btn " mat-raised-button color="accent" >submit</button>
                 </form>
             </mat-card-content>
         </mat-card>
 
-        <mat-card class="card">
-            <mat-card-header>
+        <mat-card >
+            <mat-accordion >
+                <mat-expansion-panel hideToggle class="prog-panel">
+                    <mat-expansion-panel-header >
+                        <mat-panel-title id="prog-title">Goal Progress:</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <!-- Daily-Inputs Progress Chart -->
+                    <app-daily-inputs-chart></app-daily-inputs-chart>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+
+
+            <!-- <mat-card-header>
                 <mat-card-title class="fjord-one-1">Goal Progress:</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <p>Current Progress:</p>
+                <p>Current Progress:</p> -->
                 
-                <app-daily-inputs-chart></app-daily-inputs-chart>
+                <!-- <app-daily-inputs-chart></app-daily-inputs-chart> -->
                 <!-- <table >
                     <div>
                         <tr class="table-head">
@@ -55,7 +67,7 @@
                     </div>
                 </table>
                 <button mat-raised-button color="primary" (click)="getProgressLog()">Log</button> -->
-            </mat-card-content>
+            <!-- </mat-card-content> -->
         </mat-card>
         <br>
     
