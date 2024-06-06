@@ -3,6 +3,10 @@
 }
 #dashName {
     margin: 1% 15%;
+    background-color: #e0f2f1;
+    opacity: .8;
+    padding:10px;
+    border-radius: 10px;
     color: #640058;
     font-family: 'Finlandica', 'sans-serif';
     font-size:xx-large;
@@ -16,13 +20,13 @@
     padding-top:10px;
     padding-bottom: 10px;
     background-color: #ce93d8 ;
+    opacity: 0.95;
 }
 
 .card {
     margin: 5px auto;
     height: fit-content;
     background-color: #d1c4e9;
-    color: #004d40;
     border: 2px solid #004d40;
     border-radius: 10px;
     width: 80%;

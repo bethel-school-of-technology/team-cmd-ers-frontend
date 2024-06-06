@@ -8,6 +8,8 @@
 .app-wrapper {
     display: flex;
     flex-direction: column;
+    background-image: url('src/assets/colorStripes5.1.png');
+    background-position: left top;
     min-height: 100vh;
 }
 
@@ -20,7 +22,7 @@
 .main-content {
     flex: 1;
     padding: 1rem;
-    background-color: #e0f2f1;
+    /* background-color: #e0f2f1; */
 }
 
 .footer {
