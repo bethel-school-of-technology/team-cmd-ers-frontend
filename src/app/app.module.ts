@@ -30,6 +30,8 @@ import { MatCardModule, MatCard, MatCardHeader,MatCardTitle } from '@angular/mat
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { DailyInputsChartComponent } from './daily-inputs-chart/daily-inputs-chart.component';
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     SignInDialogComponent,
     GeneralNavComponent,
     UserNavComponent,
-    GoalDetailComponent
+    GoalDetailComponent,
+    DailyInputsChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatIconModule, 
     MatListModule,
     MatCardModule, 
-    MatTooltipModule,
+    MatTooltipModule, 
+    MatTableModule,
     MatInputModule,
     MatFormFieldModule
 

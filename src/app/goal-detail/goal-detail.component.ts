@@ -8,12 +8,21 @@ import { EditDialogComponent, EditsData } from '../edit-dialog/edit-dialog.compo
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { GoalInputService } from '../services/goal-input.service';
+import { DailyGoalInput } from '../models/daily-goal-input';
 
 
 export interface DialogData {
   name?: string;
   description?: string;
 }
+
+// export interface DailyGoalInputs {
+//   goalId: number;
+//   inputId: number;
+//   date: Date;
+//   userProgress: number;
+// }
 
 @Component({
   selector: 'app-goal-detail',
@@ -28,15 +37,17 @@ export class GoalDetailComponent {
   description?: string;
 
   firstname: string = "";
-
-  curGoal: Goal = new Goal();
-
   goal_id: number = 0;
 
-  prevProgress?: number = 0;
+  curGoal: Goal = new Goal();
+  // prevProgress?: number = 0;
+
+  progressLog: DailyGoalInput[] = [];
+  // displayedColumn: string [] = ['goalId', 'inputId', 'data', 'progressInput'];
 
   constructor(private activeRoute:ActivatedRoute, private goalService: GoalService, public dialog:MatDialog,
-              private router:Router, private userService: UserService){ }
+              private router:Router, private userService: UserService, private goalInput: GoalInputService)
+    { }
 
   //opens the edit-dialog box/component to allow user edits to goal name and description 
   openDialog(): void {
@@ -72,39 +83,59 @@ export class GoalDetailComponent {
     console.log(this.curGoal);
   }
 
-  //gets the goal data from the db and calls assignGoal() to set values
+  // //gets the goal data from the db and calls assignGoal() to set values
   getGoal(): void {
     // fetch the goal that matches the id
     this.goalService.getGoalById(this.goal_id).subscribe( response => {
-      console.log("response",response);
+      // console.log("response",response);
       this.assignGoal(response);
-      this.prevProgress = this.curGoal.userProgress;
+      // this.prevProgress = this.curGoal.userProgress;
       
     });
   }
 
   //use this for updating daily progress toward the goal
   //still needs to be completed after implementing data array
-  updateProgress(form: NgForm): void{
-    console.log("prog update",form.value);
-    let todaysNum: number = form.value.todaysNumbers;
-    this.prevProgress = this.curGoal.userProgress;
-    this.curGoal.userProgress = todaysNum;
-    console.log(this.prevProgress,"|",this.curGoal.userProgress);
-    this.goalService.updateGoal(this.curGoal).subscribe(result =>{
-      console.log(result);
-    });
-    this.router.navigate([this.router.url]);
+  // updateProgress(form: NgForm): void{
+  //   console.log("prog update",form.value);
+  //   let todaysNum: number = form.value.todaysNumbers;
+  //   this.prevProgress = this.curGoal.userProgress;
+  //   this.curGoal.userProgress = todaysNum;
+  //   console.log(this.prevProgress,"|",this.curGoal.userProgress);
+  //   this.goalService.updateGoal(this.curGoal).subscribe(result =>{
+  //     console.log(result);
+  //   });
+  //   this.router.navigate([this.router.url]);
     
+  // }
+
+  //new dailyGoalInputs progress recording
+  logGoalProgress(form: NgForm) {
+    let progInput = form.value.todaysNumbers;
+    console.log("log entry value:", progInput);
+    this.goalInput.logGoalInput(progInput, this.goal_id).subscribe(result => {
+      console.log("results:",result);
+    });
   }
 
-  ngOnInit(): void {
+  //get progress log
+  getProgressLog() {
+     this.goalInput.getGoalLog(this.goal_id).subscribe(result => {
+      console.log("progres log:", result);  
+      this.progressLog = result;   
+      });
+      return this.progressLog;
+  }
+ 
+
+
+  async ngOnInit(): Promise<any> {
     // extracted the id from the url
     this.goal_id = parseInt(this.activeRoute.snapshot.paramMap.get("goalId") ?? '0');
     console.log(this.goal_id);
 
-    this.getGoal();
-    this.setUserData();
+    await this.getGoal();
+    await this.setUserData();
 
     
   }

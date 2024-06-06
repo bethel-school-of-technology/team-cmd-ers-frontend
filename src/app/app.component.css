@@ -22,9 +22,10 @@
 
 .footer {
     display: flex;
-    align-content: center;
+    align-content: baseline;
     min-height: auto;
-    padding: .5rem;
+    /* padding: .5rem; */
+    padding-bottom: 2px;
     font-size: large;
     font-family: Finlandica;
     color: #e0f2f1;
