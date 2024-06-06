@@ -53,5 +53,8 @@ export class UserProfileComponent {
     alert("stats page does not yet exist");
   }
 
+  noSave(){
+    alert("This operation is currently under development.\nThank you for your patience.")
+  }
   
 }

@@ -4,6 +4,7 @@ import { DailyGoalInput } from '../models/daily-goal-input';
 import { GoalInputService } from '../services/goal-input.service';
 import { GoalDetailComponent } from '../goal-detail/goal-detail.component';
 import { ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './daily-inputs-chart.component.html',
   styleUrls: ['./daily-inputs-chart.component.css']
 })
-export class DailyInputsChartComponent implements AfterViewInit{
+export class DailyInputsChartComponent implements OnInit{
 
   goalProgress: DailyGoalInput[] = [];  //to be used to locally store the DailyInputProgress array
   goal_id: number = 0;
@@ -19,10 +20,31 @@ export class DailyInputsChartComponent implements AfterViewInit{
   dates: any[] = [];       //to be used to pull out dates from goalProgress to be used in thte chart
   inputs: any[] = [];
 
-  constructor(private inputService: GoalInputService, private activeRoute:ActivatedRoute) {
+  progressChart: Chart | undefined;
+
+  constructor(private inputService: GoalInputService, private activeRoute:ActivatedRoute, private datepipe:DatePipe) {
     Chart.register(...registerables);
     // this.goalProgress = 
     
+  }
+
+  ngOnInit(){
+    this.goal_id = parseInt(this.activeRoute.snapshot.paramMap.get("goalId") ?? '0');
+    this.inputService.getGoalLog(this.goal_id).subscribe(result => {
+      console.log("progres log:", result);  
+      this.goalProgress = result;  
+      this.pullOutData(this.goalProgress) 
+      });
+
+  }
+
+  refreshChart(){
+    this.progressChart?.destroy();
+    this.inputService.getGoalLog(this.goal_id).subscribe(result => {
+      console.log("progres log:", result);  
+      this.goalProgress = result;  
+      this.pullOutData(this.goalProgress) 
+      });
   }
 
   // set local array values from the daily-goal-inputs array
@@ -34,10 +56,10 @@ export class DailyInputsChartComponent implements AfterViewInit{
     for( let i=0; i<data.length; i++){
       //get data and reformat the string
       if (data[i].date) {
-        let inDate = data[i].date;
-        console.log(inDate);
-        
-        this.dates.push(inDate);
+        var pDate: any = data[i].date ?? "";        
+        pDate = this.datepipe.transform(pDate,"yyyy-MM-dd");
+        // console.log(pDate);
+        this.dates.push(pDate);
       } else {
         console.error("date is undefined for data at index", i);
       }
@@ -62,13 +84,14 @@ export class DailyInputsChartComponent implements AfterViewInit{
 
   buildChart(){
 
-    const ctx = document.getElementById('inputsChart') as HTMLCanvasElement;
+    if(this.progressChart){
+      this.progressChart.destroy;
+    }
 
     var dateLabels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];  //replace with dates
     var dataVals = [12, 19, 3, 5, 2, 3];                                      //replace with inputs
 
-    if (ctx) {
-      new Chart('inputsChart', {
+    this.progressChart = new Chart('inputsChart', {
           type: 'bar',
           data: {
             labels: this.dates,
@@ -92,20 +115,18 @@ export class DailyInputsChartComponent implements AfterViewInit{
   }
 }
 
-  ngAfterViewInit(): void {
+  // ngAfterViewInit(): void {
     
 
     
     
-  }
+  // }
 
-  ngOnInit(){
-    this.goal_id = parseInt(this.activeRoute.snapshot.paramMap.get("goalId") ?? '0');
-    this.inputService.getGoalLog(this.goal_id).subscribe(result => {
-      console.log("progres log:", result);  
-      this.goalProgress = result;  
-      this.pullOutData(this.goalProgress) 
-      });
+  // ngOnDestroy() {
+  //   if(this.chart){
+  //     this.chart.destroy();
+  //   }
+  // }
 
-  }
-}
+  
+

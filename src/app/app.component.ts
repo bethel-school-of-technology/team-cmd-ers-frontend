@@ -19,11 +19,14 @@ export class AppComponent implements OnInit{
 
   hasUserToken: boolean = false;
 
-  constructor(private userService: UserService, private router: Router, public dialog: MatDialog,
-               ) { }
+  constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
 
+  ngOnInit(): void {
+  //check for user token on page load
+  this.checkForUserToken();
+}
 
-   public checkForUserToken(){
+  public checkForUserToken(){
     let test: any = localStorage.getItem('token');
     //console.log("checking: ", test);
     if (test==null){
@@ -31,13 +34,11 @@ export class AppComponent implements OnInit{
     } else {
       this.hasUserToken = true;
     }
+    console.log(this.hasUserToken);
     
   }
 
-  ngOnInit(): void {
-    //check for user token on page load
-    //this.checkForUserToken();
-  }
+
   // signin(){
   //   // console.log(this.email, this.password);
     
