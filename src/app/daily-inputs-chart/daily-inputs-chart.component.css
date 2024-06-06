@@ -1,5 +1,14 @@
 #divChart {
     display:block;
-    width: 300px;
-    height: 200px;
+    margin: 5px auto;
+    width: 95%;
+    height: auto;
+}
+#inputsChart {
+    font-family: 'Finlandica','sans-serif';
+    color: #004d40;
+}
+
+mat-icon {
+    color: #00838f;
 }
