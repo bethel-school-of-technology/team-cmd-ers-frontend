@@ -4,17 +4,21 @@ import { Goal } from '../models/goal';
 import { GoalService } from './goal.service';
 import { DailyGoalInput } from '../models/daily-goal-input';
 import { ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class GoalInputService {
 
   goalInputUrl: string = "http://localhost:5043/DailyGoalInput?goalId=";
   userToken: string = "token";
-  // goalId?: number;
+  goalId?: number;
 
-  constructor(private http:HttpClient, private goalService:GoalService,) { 
+  constructor(private http:HttpClient, private goalService:GoalService, private activeRoute:ActivatedRoute,
+              private datePipe: DatePipe) { 
     
   }
 
@@ -40,7 +44,7 @@ export class GoalInputService {
     return this.http.get<DailyGoalInput[]>(this.goalInputUrl+`${goalId}`, {headers:reqHeaders});
   }
 
-
+ 
 
   //retrieve entries for the last week
 

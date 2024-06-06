@@ -33,6 +33,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { DailyInputsChartComponent } from './daily-inputs-chart/daily-inputs-chart.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -70,10 +71,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatInputModule,
     MatFormFieldModule,
     MatExpansionModule,
-
   ],
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

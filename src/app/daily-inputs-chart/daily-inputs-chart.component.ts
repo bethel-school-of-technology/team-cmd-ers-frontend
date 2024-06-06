@@ -4,6 +4,7 @@ import { DailyGoalInput } from '../models/daily-goal-input';
 import { GoalInputService } from '../services/goal-input.service';
 import { GoalDetailComponent } from '../goal-detail/goal-detail.component';
 import { ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class DailyInputsChartComponent implements OnInit{
 
   progressChart: Chart | undefined;
 
-  constructor(private inputService: GoalInputService, private activeRoute:ActivatedRoute) {
+  constructor(private inputService: GoalInputService, private activeRoute:ActivatedRoute, private datepipe:DatePipe) {
     Chart.register(...registerables);
     // this.goalProgress = 
     
@@ -55,10 +56,10 @@ export class DailyInputsChartComponent implements OnInit{
     for( let i=0; i<data.length; i++){
       //get data and reformat the string
       if (data[i].date) {
-        let inDate = data[i].date;
-        console.log(inDate);
-        
-        this.dates.push(inDate);
+        var pDate: any = data[i].date ?? "";        
+        pDate = this.datepipe.transform(pDate,"yyyy-MM-dd");
+        // console.log(pDate);
+        this.dates.push(pDate);
       } else {
         console.error("date is undefined for data at index", i);
       }
