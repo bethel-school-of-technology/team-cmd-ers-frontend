@@ -32,6 +32,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { DailyInputsChartComponent } from './daily-inputs-chart/daily-inputs-chart.component';
+import { PieChartTryComponent } from './pie-chart-try/pie-chart-try.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+
 
 
 @NgModule({
@@ -49,6 +53,7 @@ import { DailyInputsChartComponent } from './daily-inputs-chart/daily-inputs-cha
     UserNavComponent,
     GoalDetailComponent,
     DailyInputsChartComponent,
+    PieChartTryComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,8 +72,8 @@ import { DailyInputsChartComponent } from './daily-inputs-chart/daily-inputs-cha
     MatTooltipModule, 
     MatTableModule,
     MatInputModule,
-    MatFormFieldModule
-
+    MatFormFieldModule,
+    MatProgressBarModule,
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

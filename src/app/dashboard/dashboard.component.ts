@@ -49,7 +49,7 @@ export class DashboardComponent implements OnInit {
     
     await this.getDailyQuote();
 
-    this.buildChart();
+    
     
   }
 
@@ -152,40 +152,6 @@ export class DashboardComponent implements OnInit {
     alert("stats page does not yet exist");
   }
 
-  buildChart(){
-
-    const ctx = document.getElementById('inputsChart') as HTMLCanvasElement;
-
-    var progress = 50;                                     //replace with inputs
-
-    if (ctx) {
-      new Chart('inputsChart', {
-          type: 'pie',
-          data: {
-            labels: [
-              'Finished',
-              'Unfinished'
-            ],
-            datasets: [{
-              label: 'My First Dataset',
-              data: [this.avgProgress, 100-this.avgProgress],
-              backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)'
-              ],
-              hoverOffset: 4
-            }]
-          },
-          // options: {
-          //   scales: {
-          //     y: {
-          //       beginAtZero: true
-          //     }
-          //   }
-          // }
-        });
-  }
-}
 
   
 }
