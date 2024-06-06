@@ -5,6 +5,7 @@ import { Goal } from '../models/goal';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
+import { Chart, registerables } from 'chart.js';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class DashboardComponent implements OnInit {
 
   // property to store user goals
   userGoals: Goal[] = [];
+
+  avgProgress = 33;
 
   quote: any;
   author: any;
@@ -31,7 +34,9 @@ export class DashboardComponent implements OnInit {
   gridRowHeight: string = "1:1";
 
   constructor(private goalService: GoalService, private dailyQuotes: DailyQuotesService, 
-              private router: Router, private userService: UserService, private app:AppComponent) { }
+              private router: Router, private userService: UserService, private app:AppComponent) { 
+                Chart.register(...registerables);
+              }
 
   async ngOnInit(): Promise<void>{
     this.setGridLayout(window.innerWidth);   //initiate window size adjustments for thr grid list
@@ -43,6 +48,8 @@ export class DashboardComponent implements OnInit {
     })
     
     await this.getDailyQuote();
+
+    this.buildChart();
     
   }
 
@@ -144,6 +151,41 @@ export class DashboardComponent implements OnInit {
   stats(){
     alert("stats page does not yet exist");
   }
+
+  buildChart(){
+
+    const ctx = document.getElementById('inputsChart') as HTMLCanvasElement;
+
+    var progress = 50;                                     //replace with inputs
+
+    if (ctx) {
+      new Chart('inputsChart', {
+          type: 'pie',
+          data: {
+            labels: [
+              'Finished',
+              'Unfinished'
+            ],
+            datasets: [{
+              label: 'My First Dataset',
+              data: [this.avgProgress, 100-this.avgProgress],
+              backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)'
+              ],
+              hoverOffset: 4
+            }]
+          },
+          // options: {
+          //   scales: {
+          //     y: {
+          //       beginAtZero: true
+          //     }
+          //   }
+          // }
+        });
+  }
+}
 
   
 }
