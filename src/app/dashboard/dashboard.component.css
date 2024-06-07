@@ -91,9 +91,11 @@ mat-grid-list {
     width: 10px;
     height: 10px;
 }
-.goal-progress {
+mat-card-content.goal-progress {
     font-family: 'Fjord One', 'serif';
     margin: 5px auto;
+    width: 90%;
+    text-align: center;
 }
 .fab-small {
     width: 35px;
