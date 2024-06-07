@@ -6,8 +6,6 @@
 .top-third, .mid-third, .low-third {
     margin: 5% auto;
     padding: 2% 10%;
-    
-
 }
 
 mat-grid-tile.top-image {
@@ -35,8 +33,17 @@ mat-panel-title {
     background-color: #e0f2f1;
     opacity: .8;
     color: #004d40;
-    border-radius: 10px;
 }
+
+.low-third-img {
+    background-image: url('https://plus.unsplash.com/premium_vector-1714230285176-f431939a1ce4?bg=FFFFFF&q=80&w=2490&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    /* background-image: url('https://plus.unsplash.com/premium_vector-1716909239158-ccbb20f10009?bg=FFFFFF&q=80&w=2360&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
+    background-repeat: no-repeat;
+    background-size:60%;
+    background-position-x: center;
+    opacity: .8;
+}
+
 
 .responsive-grid {
     --grid-cols: 1;
