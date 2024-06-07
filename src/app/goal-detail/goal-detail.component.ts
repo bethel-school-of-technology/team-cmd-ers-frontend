@@ -53,25 +53,25 @@ export class GoalDetailComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(EditDialogComponent, {
       data: {name: this.name, description: this.description},
-      height: '40%',
-      width: '25%',
+      height: '300px',
+      width: '450px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('goal-detail- dialog closed', result);
+      //console.log('goal-detail- dialog closed', result);
       this.updateData(result.data);
     });
   }
 
   //updates the data displayed on the goal-detail page and call the PUT API to make the chanes to the db.
   updateData(data: any){
-    console.log("update func:",data);
+    //console.log("update func:",data);
     this.name = data.name;
     this.description = data.description;
     this.curGoal.name = data.name;
     this.curGoal.description = data.description;
     this.goalService.updateGoal(this.curGoal).subscribe(result =>{
-      console.log(result);
+      //console.log(result);
     });
   }
 
@@ -80,7 +80,7 @@ export class GoalDetailComponent {
     this.curGoal = gotGoal;
     this.name = this.curGoal.name;
     this.description = this.curGoal.description;
-    console.log(this.curGoal);
+    //console.log(this.curGoal);
   }
 
   // //gets the goal data from the db and calls assignGoal() to set values
