@@ -100,3 +100,9 @@ mat-grid-list {
     height: 35px;
     font-size: 10px;
   }
+
+  #divChart {
+    display:block;
+    width: 300px;
+    height: 200px;
+}
