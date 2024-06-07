@@ -1,6 +1,7 @@
 
 .quote-card-container {
     background-color: #d1c4e9;
+    opacity: 0.95;
     border: 4px double #7b1fa2;
     border-radius: 10px;
     padding-left: 10px;
@@ -19,6 +20,10 @@
 #dashName {
     margin: 1% 15%;
     color: #640058;
+    background-color: #e0f2f1;
+    opacity: .8;
+    padding:10px;
+    border-radius: 10px;
     font-family: 'Finlandica', 'sans-serif';
     font-size:xx-large;
     font-weight: 600;
@@ -36,6 +41,9 @@
 }
 #goal-heading {
     color:#004d40;
+    background-color: #e0f2f1;
+    opacity: .8;
+    border-radius: 10px;
     font-size: xx-large;
 }
 #new-btn {
@@ -72,6 +80,7 @@ mat-grid-list {
     border: 4px double #00897b;
     border-radius: 10px;
     color: #004d40;
+    opacity: 0.95;
 }
 .goal-title {
     font-size: x-large;
@@ -82,9 +91,11 @@ mat-grid-list {
     width: 10px;
     height: 10px;
 }
-.goal-progress {
+mat-card-content.goal-progress {
     font-family: 'Fjord One', 'serif';
     margin: 5px auto;
+    width: 90%;
+    text-align: center;
 }
 .fab-small {
     width: 35px;

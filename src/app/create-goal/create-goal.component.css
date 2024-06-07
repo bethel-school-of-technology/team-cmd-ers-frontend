@@ -1,6 +1,10 @@
 #create-goal-name{
     margin: 1% 15%;
+    background-color: #e0f2f1;
+    opacity: .8;
+    padding:10px;
     color: #640058;
+    border-radius: 10px;
     font-family: 'Finlandica', 'sans-serif';
     font-size:xx-large;
     font-weight: 600;
@@ -21,6 +25,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: #d1c4e9;
+    opacity: 0.95;
     margin: 10px auto;
     padding: 10px;
     width: 60%;

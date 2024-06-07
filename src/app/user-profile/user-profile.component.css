@@ -1,6 +1,10 @@
 #profileName {
     margin: 1% 20%;
     color: #640058;
+    background-color: #e0f2f1;
+    opacity: .8;
+    padding: 10px;
+    border-radius: 10px;
     font-family: 'Finlandica', 'sans-serif';
     font-size:xx-large;
     font-weight: 600;
@@ -21,6 +25,7 @@
     border-radius: 10px;
     width: 60%;
     background-color: #d1c4e9 ;
+    opacity: .95;
     font-family: 'Finlandica', 'sans-serif';
     color: #004d40;
 }
