@@ -33,14 +33,15 @@ export class SignInDialogComponent implements OnInit {
 
   signin(){
     //Verifies validity of email and password and won't submit with empty inputs
-    if (this.invalidEmail || this.invalidPassword) {
-      return;
-    }
+    // if (this.invalidEmail.invalid || this.invalidPassword.invalid) {
+    //   return;
+    // }
 
     this.dialogRef.close({confirmed:true, data:{email:this.email, password: this.password}});
   }
 
   emailValidityCheck() {
+
     if (this.invalidEmail.hasError('email')) {
       return 'Valid email is required';
     }

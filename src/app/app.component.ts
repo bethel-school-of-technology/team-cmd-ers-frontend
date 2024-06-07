@@ -34,7 +34,7 @@ export class AppComponent implements OnInit{
     } else {
       this.hasUserToken = true;
     }
-    console.log(this.hasUserToken);
+    console.log("has user token:",this.hasUserToken);
     
   }
 
