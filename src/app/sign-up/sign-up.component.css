@@ -1,7 +1,37 @@
-.card2 {
-    margin-top: 150px;
-    margin-left: 500px;
-    color: #640058;
+.signUp {
+    font-family: 'Finlandica', 'sans-serif';
+    color: #004d40;
+}
+form.signUp {
+    width:50%;
+    padding:10px;
+    margin:30px auto;    
+    background-color: #d1c4e9;
+    /* background-color: #e0f2f1; */
+    opacity: .95;
+    border: 7.5px double #640058;
+    border-radius: 15px;
+
+}
+#form-title {
+    margin: 10px auto 20px auto;
+    width: 80%;
+    text-align: right;
+    border-bottom: 3px solid #004d40;
+}
+.form-content {
+    display: block;
+    width: 75%;
+    margin: 5px auto;
     
-   
+}
+mat-form-field {
+    width:100%;
+}
+mat-label {
+    color:#640058;
+    font-family: 'fjord one', 'serif';
+}
+#signup-btn {
+    width: 90px;
 }

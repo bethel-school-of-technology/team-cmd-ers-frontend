@@ -13,12 +13,16 @@ export class SignUpComponent implements OnInit {
   // newUser: User = {};
   newUser: User = new User();
 
+  public email: string = '';
+  public password: string = '';
+
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   signUp() {
+
     this.userService.signUp(this.newUser).subscribe(() => {
         window.alert("User Registered Successfully");
         // this.router.navigate(['signin']);
@@ -28,8 +32,7 @@ export class SignUpComponent implements OnInit {
         console.log('Error: ', error)
     });
   }
+
+  
+
 }
-
-
-
-

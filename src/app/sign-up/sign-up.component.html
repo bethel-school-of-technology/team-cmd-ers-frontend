@@ -1,31 +1,35 @@
-<div class="card2" style="width: 30rem;">
+<div class="signUp" >
 
-    <form (ngSubmit)="signUp()">
-        <h2>Sign Up</h2>
-        <div class="mb-3">
-            <label for="firstName" class="form-label">First Name</label>
-            <!-- <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="newUser.firstName"> -->
-            <input type="text"  name="firstName"  [(ngModel)]="newUser.firstName">
+    <form class="signUp" (ngSubmit)="signUp()">
+        <h2 id="form-title">Sign Up</h2>
+        <div class="form-content">
+            <mat-form-field color="accent">
+                <mat-label> First Name</mat-label>
+                <input matInput type="text"  name="firstName"  [(ngModel)]="newUser.firstName">
+            </mat-form-field>
         </div>
-        <div class="mb-3">
-            <label for="lastName" class="form-label">Last Name</label>
-            <!-- <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="newUser.lastName"> -->
-            <input type="text"  name="lastName" [(ngModel)]="newUser.lastName">
+        <div class="form-content">
+            <mat-form-field color="accent">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text"  name="lastName" [(ngModel)]="newUser.lastName">
+            </mat-form-field>
+        </div>        
+        <div class="form-content" >
+        <mat-form-field color="accent">
+            <mat-label>Email</mat-label>
+            <input matInput type="email"   name="email" [(ngModel)]="newUser.email">
+        </mat-form-field>
         </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <!-- <input type="email" class="form-control" id="email" name="email" [(ngModel)]="newUser.email"> -->
-            <input type="email"   name="email" [(ngModel)]="newUser.email">
+        <div class="form-content">
+            <mat-form-field color="accent">
+                <mat-label>Password</mat-label>
+                <input matInput type="password"  name="password"  [(ngModel)]="newUser.password">
+            </mat-form-field>
         </div>
-        <div class="mb-3">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <!-- <input type="password" class="form-control" name="password" id="inputPassword4" [(ngModel)]="newUser.password"> -->
-            <input type="password"  name="password"  [(ngModel)]="newUser.password">
-        </div>
-
-        <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-        </div>
+        
+ 
+        <button mat-raised-button color="primary" class="form-content" id="signup-btn" type="submit" >Sign Up</button>
+        <!--  -->
         
 
     </form>
