@@ -2,15 +2,17 @@
     <form (ngSubmit)="signin()">
         <h2>Sign In</h2>
         <div class="input-div">
-            <mat-form-field>
+            <mat-form-field color="accent">
                 <mat-label>Email</mat-label>
                 <input matInput type="email" name="email" placeholder="ex. JoeSmith@email.com" [(ngModel)]="email" required>
+                <mat-error *ngIf="invalidEmail.invalid">{{emailValidityCheck()}}</mat-error>
             </mat-form-field>
         </div>
         <div class="input-div">
-            <mat-form-field>
+            <mat-form-field color="accent">
                 <mat-label>Password</mat-label>
                 <input matInput type="password" name="password" placeholder="Enter Your Password" [(ngModel)]="password" required>
+                <mat-error *ngIf="invalidPassword.invalid">{{passwordValidityCheck()}}</mat-error>
             </mat-form-field>
         </div>
         <button mat-raised-button color="primary" type="submit">Sign In</button>

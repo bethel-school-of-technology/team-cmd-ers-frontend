@@ -16,19 +16,39 @@ export interface EditsData {
 @Component({
   selector: 'app-sign-in-dialog',
   templateUrl: './sign-in-dialog.component.html',
-  styleUrls: ['./sign-in-dialog.component.css']
+  styleUrls: ['./sign-in-dialog.component.css'],
 })
 export class SignInDialogComponent implements OnInit {
 
   public email: string = '';
   public password: string = '';
 
+  //Validates User email and password
+  invalidEmail = new FormControl('', [Validators.required, Validators.email]);
+  invalidPassword = new FormControl('', [Validators.required]);
+
   constructor(private userService: UserService, private router: Router, public dialogRef: MatDialogRef<SignInDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
   
   ngOnInit(): void {}
 
   signin(){
-    // console.log(this.email, this.password);
+    //Verifies validity of email and password and won't submit with empty inputs
+    if (this.invalidEmail || this.invalidPassword) {
+      return;
+    }
+
     this.dialogRef.close({confirmed:true, data:{email:this.email, password: this.password}});
+  }
+
+  emailValidityCheck() {
+    if (this.invalidEmail.hasError('email')) {
+      return 'Valid email is required';
+    }
+
+    return this.invalidEmail.hasError('required') ? 'Email is required' : '';
+  }
+
+  passwordValidityCheck() {
+    return this.invalidPassword.hasError('required') ? 'Password is required' : '';
   }
 }
