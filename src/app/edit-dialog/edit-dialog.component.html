@@ -1,16 +1,18 @@
-<!-- <h2 mat-dialog-title>Edit Goal Description</h2> -->
-<div id="editForm">
-<form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
-    <label for="name"><b>Edit Goal Name</b></label>
-    <input type="text" name="name" placeholder={{this.newName}} ngModel>
-    <br>
-    <label for="description"><b>Edit Goal Description</b></label>
-    <textarea type="text" name="description" placeholder={{this.newDescr}} ngModel></textarea>
-    <div id="select">
-        <button (click)="onClose()">Close</button>
-        <button type="submit" >Confirm</button>
-    </div>
-    
-</form>
-
+<div class="body">
+    <form #editForm="ngForm" (ngSubmit)="onSubmit()">
+        <mat-form-field color="accent">
+            <mat-label>Goal Name</mat-label>
+            <input matInput name="name" [(ngModel)]="this.name" required>
+            <mat-error *ngIf="invalidName.invalid">{{nameValidityCheck()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field color="accent">
+            <mat-label>Goal Description</mat-label>
+            <textarea matInput name="description" [(ngModel)]="description" required></textarea>
+            <mat-error *ngIf="invalidDescription.invalid">{{descriptionValidityCheck()}}</mat-error>
+        </mat-form-field>
+        <div class="btn-div">
+            <button mat-raised-button color="primary" (click)="onClose()">Close</button>
+            <button mat-raised-button color="primary" type="submit">Confirm</button>
+        </div>
+    </form>
 </div>
