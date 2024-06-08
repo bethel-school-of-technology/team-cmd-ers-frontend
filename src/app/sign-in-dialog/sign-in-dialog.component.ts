@@ -32,11 +32,6 @@ export class SignInDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   signin(){
-    //Verifies validity of email and password and won't submit with empty inputs
-    // if (this.invalidEmail.invalid || this.invalidPassword.invalid) {
-    //   return;
-    // }
-
     this.dialogRef.close({confirmed:true, data:{email:this.email, password: this.password}});
   }
 
