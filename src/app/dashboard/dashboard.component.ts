@@ -20,13 +20,13 @@ export class DashboardComponent implements OnInit {
   // property to store user goals
   userGoals: Goal[] = [];
 
-  avgProgress = 33;
-
+  //variables for use with the daily quote
   quote: any;
   author: any;
   date: any;
   currentDate: string = new Date().toISOString().split('T')[0];
 
+  //local user data variables
   firstName: string = "";
   lastName: string = "";
   email: string = "";
@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
     this.getDailyQuote();
   }
 
-  //add an event listener to get the window size
+  //add an event listener to get the window size - for responsive grid
   @HostListener('window:resize',[`$event`]) onResize(event:any){
     this.setGridLayout(event.target.innerWidth);
   }
@@ -117,6 +117,7 @@ export class DashboardComponent implements OnInit {
     return currentDate !== localStorage.getItem('dailyQuoteDate');
   }
 
+  //used to calculate a percentage for each goal's progress bar
   calcProgress(uGoal:Goal){
     // console.log(uGoal);
     let id=uGoal.id;
@@ -137,6 +138,8 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  //average the ProgressInput values in a given array and return the average
+  // all the console.lo() statements used for testing
   aveData(arr:DailyGoalInput[], max: number): number{
     // console.log("enter AveData");
     let sum:number = 0;

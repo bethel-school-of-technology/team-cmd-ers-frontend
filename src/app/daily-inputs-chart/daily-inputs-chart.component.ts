@@ -96,7 +96,6 @@ export class DailyInputsChartComponent implements OnInit{
               borderWidth: 0,
               backgroundColor: '#4db6ac',
               borderColor: '#1a237e',
-              // hoverBackgroundColor: '#9575cd',
             }]
           },
           options: {

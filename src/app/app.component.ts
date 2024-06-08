@@ -22,9 +22,9 @@ export class AppComponent implements OnInit{
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-  //check for user token on page load
-  this.checkForUserToken();
-}
+    //check for user token on page load
+    this.checkForUserToken();
+  }
 
   public checkForUserToken(){
     let test: any = localStorage.getItem('token');
@@ -37,46 +37,5 @@ export class AppComponent implements OnInit{
     console.log("has user token:",this.hasUserToken);
     
   }
-
-
-  // signin(){
-  //   // console.log(this.email, this.password);
-    
-  //       this.userService.signIn(this.email, this.password).subscribe((response:any) => {
-  //         console.log("response", response);
-  //         this.router.navigateByUrl('/dashboard');
-  //       }, error => {
-  //         console.log('Error: ', error);
-  //         window.alert('Unsuccessful Login');
-  //         // this.router.navigateByUrl('/home');
-  //       });
-  //     }
-  
-  
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(SignInDialogComponent, {
-  //     data: {email: this.email, password: this.password}, height: "200px", width: "300px",
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     // console.log('The dialog was closed', result.data.email, result.data.password);
-  //     this.email = result.data.email;
-  //     this.password = result.data.password;
-  //     this.signin();
-  //   });
-  // }
-
-  // signOut(): void {
-  //   // call user service to signout and reroute to Home page
-  //   this.userService.signOut();
-  //   this.homeRoute();
-  // }
-
-
-  // //method for routing to the home page
-  // homeRoute(){
-  //   console.log("routing to home page");
-  //   this.router.navigate(['home']);
-  // }
 
 }

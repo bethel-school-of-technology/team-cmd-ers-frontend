@@ -9,7 +9,7 @@
 }
 
 mat-grid-tile.top-image {
-    background-image: url('src/app/home/images/full_logo.png');
+    background-image: url('./full_logo.png');
     background-size: 60%;
     background-repeat: no-repeat;
     background-position-y: center;
