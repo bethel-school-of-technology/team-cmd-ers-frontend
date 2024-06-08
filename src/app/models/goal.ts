@@ -1,3 +1,5 @@
+import { DailyGoalInput } from "./daily-goal-input";
+
 export class Goal {
 
     id?: number = 0;
@@ -7,9 +9,10 @@ export class Goal {
     goalToReach?: number = 0;
     userProgress?: number = 0;
     dateCreated?: string = "";
+    dailyGoalInput?: DailyGoalInput[] = [];
 
     constructor(id?:number,name?:string,type?:string,description?:string,
-                goalToReach?:number,userProgress?:number,dateCreated?:string)
+                goalToReach?:number,userProgress?:number,dateCreated?:string, dailyGoalInput?:DailyGoalInput[])
     {
         this.id = id;
         this.name = name;
@@ -18,6 +21,7 @@ export class Goal {
         this.goalToReach = goalToReach;
         this.userProgress = userProgress;
         this.dateCreated = dateCreated;
+        this.dailyGoalInput = dailyGoalInput;
 
     }
 

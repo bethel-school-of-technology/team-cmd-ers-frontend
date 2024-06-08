@@ -5,7 +5,9 @@ import { Goal } from '../models/goal';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
-import { Chart, registerables } from 'chart.js';
+import { Chart, Colors, registerables } from 'chart.js';
+import { DailyGoalInput } from '../models/daily-goal-input';
+import { GoalInputService } from '../services/goal-input.service';
 
 
 @Component({
@@ -34,7 +36,8 @@ export class DashboardComponent implements OnInit {
   gridRowHeight: string = "1:1";
 
   constructor(private goalService: GoalService, private dailyQuotes: DailyQuotesService, 
-              private router: Router, private userService: UserService, private app:AppComponent) { 
+              private router: Router, private userService: UserService, private app:AppComponent,
+              private inputService: GoalInputService) { 
                 Chart.register(...registerables);
               }
 
@@ -119,12 +122,46 @@ export class DashboardComponent implements OnInit {
 
   calcProgress(uGoal:Goal){
     // console.log(uGoal);
-    let prog: number = uGoal.userProgress!=undefined ? uGoal.userProgress : 0 ;
+    let id=uGoal.id;
     let max: number = uGoal.goalToReach!=undefined ? uGoal.goalToReach : 1;
-    // console.log(prog, max, uGoal.id);
-    let ratio : string = (prog / max * 100).toFixed(2);
-    return ratio;
+    // console.log("max:", max);
+    let aveProg: number;
+    // console.log(uGoal.dailyGoalInput);
+    let inputsArr: DailyGoalInput[] = uGoal.dailyGoalInput || [];
+    
+    // console.log("setting daily inputs for:",`${uGoal.name}`);
+    // console.log("sending to aveData next for:",`${uGoal.name}`);
+    if (inputsArr.length == 0) {
+      return 0;
+    } else {
+      aveProg = this.aveData(inputsArr, max); 
+      // console.log("finished aveData, returning val to html for:",`${uGoal.name}`);
+      return (aveProg/max*100).toFixed(2)
+    }
+  }
 
+  aveData(arr:DailyGoalInput[], max: number): number{
+    // console.log("enter AveData");
+    let sum:number = 0;
+    let len: number = arr.length;
+    //loop through inputsArr 
+    for (let i=0; i<arr.length; i++){
+      // console.log(`looping ${i}`, `current value: ${arr[i].progressInput}`);
+      let num = arr[i].progressInput || 0;
+      //if any progressInput value is equal or greater than max, stop and set ratio to 1
+      if (num >= max){
+        // console.log(num);
+        return 1;
+      }  //otherwise sum up the values for progressInput 
+      else {
+        // console.log(`adding ${num}`)
+        sum += num;
+        // console.log("sum:",sum);
+      }
+    }
+    let ave = sum / len;
+    // console.log("returning ratio:", ave);
+    return ave;
   }
 
   deleteGoal(id?: number){
