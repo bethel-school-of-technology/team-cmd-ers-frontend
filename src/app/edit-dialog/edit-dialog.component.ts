@@ -39,7 +39,7 @@ export class EditDialogComponent {
 
 
 
-  constructor(public dialogRef: MatDialogRef<EditDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData,) {}
+  constructor(public dialogRef: MatDialogRef<EditDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
 
   ngOnInit(): void {
@@ -52,12 +52,14 @@ export class EditDialogComponent {
   }
 
   onSubmit() {
-    //Ensures name and description are valid before sending updated info
-    if (this.invalidName || this.invalidDescription) {
-      return;
-    }
+    if(this.name == null || this.name == '') {
+      this.setData();
+    } else if (this.description == null || this.description == '') {
+      this.setData();
+    };
+
     //console.log("hey - editForm Submitted- ", this.newName, ":", this.newDescr);
-    this.dialogRef.close({confirmed:true, data:{name:this.name, description: this.description}}); 
+    this.dialogRef.close({confirmed:true, data:{name:this.name, description: this.description}});
   }
 
   //Checks for validity of name in real time providing feedback to the user
