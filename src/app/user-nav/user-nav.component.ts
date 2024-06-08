@@ -37,7 +37,7 @@ export class UserNavComponent {
 
   //method for routing to the home page
   homeRoute(){
-    console.log("routing to home page");
+    //console.log("routing to home page");
     this.router.navigate(['home']);
   }
 

@@ -18,7 +18,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   signUp(newUser: User){
-    console.log("service: ",newUser);
+    //console.log("service: ",newUser);
     return this.http.post(`${this.baseURL}/signup`, newUser);
   }
 
@@ -48,8 +48,8 @@ export class UserService {
     // console.log("printing:");
     
     const response = await firstValueFrom(this.http.get<User>(`${this.baseURL}/user`, { headers: reqHeaders }));
-    console.log("inner:");
-    console.log(response);
+    //console.log("inner:");
+    //console.log(response);
 
     const userdata = JSON.stringify(response);
     localStorage.setItem('user', userdata);  
@@ -67,7 +67,7 @@ export class UserService {
       this.lastName = user.lastName;
       this.email = user.email;
     } else {
-      console.log("no user data found");
+      //console.log("no user data found");
     }
     // console.log("user data set:", this.firstName, this.lastName, this.email);
   }
@@ -82,10 +82,7 @@ export class UserService {
       throw new Error("not logged in yet");
     }
   }
-    
-  editUser(editUser: User){
-
-  }
-
   
+  //Planned to add as a feature to update the user information 
+  editUser(editUser: User){ }
 }

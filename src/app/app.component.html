@@ -1,53 +1,7 @@
-<!-- conditional statement to display certain fields if user logged in or not -->
-
-<!-- commented out for nav update -->
-<!-- <nav class="navbar navbar-expand-lg" data-bs-theme="dark" style="background-color: #640058; height: 50px;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/home">
-      <img src="/assets/logo.png"  height="50" />
-    </a> -->
-
-
-    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
-    <!-- <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="/home" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover" href="#">Sign In</a>
-         
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/signup"  href="#">Sign Up</a>
-        </li>
-
-      </ul>
-    </div> -->
-    
-
-    <!-- commented out for nav update -->
-      <!-- <button style="background-color: azure; margin-left: 100px; font-size: 15px; position: absolute;
-      top: 14px;" routerLink="/signup">Sign Up</button>
-      
-      
-      <button mat-raised-button (click)="openDialog()" style="background-color: azure; margin-left: 200px; font-size: 15px; position: absolute;
-      top: 14px;">Sign In</button>
-
-      <button mat-raised-button (click)="signOut()" style="background-color: azure; margin-left: 300px; font-size: 15px; position: absolute;
-      top: 14px;">Sign OUT</button>
-   
-  </div>
-</nav> -->
 
 <!-- wrapper/container for the whole app.component template -->
 <div class="app-wrapper">
+  
   <!-- header area -->
   <div class="header">
     <app-general-nav *ngIf="!hasUserToken"></app-general-nav>
@@ -55,26 +9,10 @@
   </div>
 
   <!-- main content area -->
-  <div class="main-content">
-    <!-- mat-diviers and section added for color theme testing -->
-    <!-- <mat-divider></mat-divider>
-    <section>
-      <div class="example-label">Raised</div>
-      <div class="example-button-row">
-        <button mat-raised-button >Basic</button>
-        <button mat-raised-button color="primary">Primary</button>
-        <button mat-raised-button color="accent">Accent</button>
-        <button mat-raised-button color="warn">Warn</button>
-        <button mat-raised-button disabled>Disabled</button>
-        <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
-      </div>
-    </section>
-    <mat-divider></mat-divider> -->
-    
+  <div class="main-content">    
     <router-outlet></router-outlet>
   </div>
 
-  <!-- <nav id="footer" class="navbar float-bottom"> -->
   <!-- footer area -->
     <mat-toolbar class="footer" color="primary">
       <ng-content select="[slot='footer']" />

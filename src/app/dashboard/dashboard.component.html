@@ -11,7 +11,7 @@
         <div class="goal-head"> 
             <h2 class="goal-head" id="goal-heading">Your Goals: </h2>
             <button mat-raised-button matTooltip="add new goal" color="accent" 
-                class="goal-head" id="new-btn" routerLink="/create-goal"> + </button>
+                class="goal-head" id="new-btn" routerLink="/create-goal">+</button>
         </div>
         
         <mat-grid-list [cols]="gridCols" [rowHeight]="gridRowHeight" gutterSize="8px" class="goal-list responsive-grid" >
@@ -25,7 +25,6 @@
                         </button>
                     </mat-card-header>
                     <mat-card-content class="goal-progress" routerLink="/goal-detail/{{g.id}}">
-                        <!-- place code for pie chart here -->
                         <p>Progress:   {{calcProgress(g)}}%</p>
                         
                         <mat-progress-bar mode="determinate" value="{{calcProgress(g)}}"></mat-progress-bar>
@@ -35,12 +34,5 @@
                 </mat-card>
             </mat-grid-tile>
         </mat-grid-list>
-
-        <!-- HERE is the chart
-
-                        <div id="divChart">
-                            <canvas id="inputsChart"></canvas>
-                        </div>
-         -->
     </div>
 </div>

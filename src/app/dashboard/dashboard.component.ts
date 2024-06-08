@@ -20,13 +20,13 @@ export class DashboardComponent implements OnInit {
   // property to store user goals
   userGoals: Goal[] = [];
 
-  avgProgress = 33;
-
+  //variables for use with the daily quote
   quote: any;
   author: any;
   date: any;
   currentDate: string = new Date().toISOString().split('T')[0];
 
+  //local user data variables
   firstName: string = "";
   lastName: string = "";
   email: string = "";
@@ -46,17 +46,14 @@ export class DashboardComponent implements OnInit {
     this.localStorageCheck('token');
     await this.setUserData();
     this.goalService.getAllGoals().subscribe(response => {
-      console.log(response);
+      //console.log(response);
       this.userGoals = response;
     })
     
-    await this.getDailyQuote();
-
-    
-    
+    this.getDailyQuote();
   }
 
-  //add an event listener to get the window size
+  //add an event listener to get the window size - for responsive grid
   @HostListener('window:resize',[`$event`]) onResize(event:any){
     this.setGridLayout(event.target.innerWidth);
   }
@@ -95,7 +92,7 @@ export class DashboardComponent implements OnInit {
       localStorage.removeItem('dailyQuote');
       localStorage.removeItem('dailyQuoteAuthor');
       localStorage.removeItem('dailyQuoteDate');
-      console.log('Removed daily quote items');
+      //console.log('Removed daily quote items');
     }
 
     if(this.localStorageCheck('dailyQuote') && this.localStorageCheck('dailyQuoteAuthor')){
@@ -120,6 +117,7 @@ export class DashboardComponent implements OnInit {
     return currentDate !== localStorage.getItem('dailyQuoteDate');
   }
 
+  //used to calculate a percentage for each goal's progress bar
   calcProgress(uGoal:Goal){
     // console.log(uGoal);
     let id=uGoal.id;
@@ -140,6 +138,8 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  //average the ProgressInput values in a given array and return the average
+  // all the console.lo() statements used for testing
   aveData(arr:DailyGoalInput[], max: number): number{
     // console.log("enter AveData");
     let sum:number = 0;
@@ -151,7 +151,7 @@ export class DashboardComponent implements OnInit {
       //if any progressInput value is equal or greater than max, stop and set ratio to 1
       if (num >= max){
         // console.log(num);
-        return 1;
+        return max;
       }  //otherwise sum up the values for progressInput 
       else {
         // console.log(`adding ${num}`)
@@ -165,30 +165,10 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteGoal(id?: number){
-    console.log(id);
+    // console.log(id);
     this.goalService.deleteGoal(id).subscribe(response => {
-      console.log(response);
+      // console.log(response);
       this.ngOnInit();
     })
   }
-  
-
-  //method for routing to the dashboard
-  dashRoute(){
-    console.log("routing to dashboard");
-    this.router.navigate(['/dashboard']);
-  }
-
-  //method for routing to the profile page
-  profileRoute(){
-    console.log("routing to user-profile");
-    this.router.navigate(['/user-profile']);
-  }
-
-  stats(){
-    alert("stats page does not yet exist");
-  }
-
-
-  
 }

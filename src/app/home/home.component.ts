@@ -5,10 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { SignInDialogComponent } from '../sign-in-dialog/sign-in-dialog.component';
 
 
-
-
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -40,9 +36,6 @@ export class HomeComponent implements OnInit {
     } else if (width >= 600) {
       this.gridCols = 2;
       this.gridRowHeight = '500px';
-    // } else  {
-    //   this.gridCols = 3;
-    //   this.gridRowHeight = '2:1';
     }
   }
 

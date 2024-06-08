@@ -40,10 +40,8 @@ export class GoalDetailComponent {
   goal_id: number = 0;
 
   curGoal: Goal = new Goal();
-  // prevProgress?: number = 0;
-
+  progInput: number = 0;
   progressLog: DailyGoalInput[] = [];
-  // displayedColumn: string [] = ['goalId', 'inputId', 'data', 'progressInput'];
 
   constructor(private activeRoute:ActivatedRoute, private goalService: GoalService, public dialog:MatDialog,
               private router:Router, private userService: UserService, private goalInput: GoalInputService)
@@ -52,9 +50,9 @@ export class GoalDetailComponent {
     async ngOnInit(): Promise<any> {
       // extracted the id from the url
       this.goal_id = parseInt(this.activeRoute.snapshot.paramMap.get("goalId") ?? '0');
-      console.log(this.goal_id);
+      //console.log(this.goal_id);
   
-      await this.getGoal();
+      this.getGoal();
       await this.setUserData();
     }
 
@@ -98,39 +96,26 @@ export class GoalDetailComponent {
     this.goalService.getGoalById(this.goal_id).subscribe( response => {
       // console.log("response",response);
       this.assignGoal(response);
-      // this.prevProgress = this.curGoal.userProgress;
-      
     });
   }
 
-  //use this for updating daily progress toward the goal
-  //still needs to be completed after implementing data array
-  // updateProgress(form: NgForm): void{
-  //   console.log("prog update",form.value);
-  //   let todaysNum: number = form.value.todaysNumbers;
-  //   this.prevProgress = this.curGoal.userProgress;
-  //   this.curGoal.userProgress = todaysNum;
-  //   console.log(this.prevProgress,"|",this.curGoal.userProgress);
-  //   this.goalService.updateGoal(this.curGoal).subscribe(result =>{
-  //     console.log(result);
-  //   });
-  //   this.router.navigate([this.router.url]);
-    
-  // }
-
   //new dailyGoalInputs progress recording
-  logGoalProgress(form: NgForm) {
-    let progInput = form.value.todaysNumbers;
-    console.log("log entry value:", progInput);
-    this.goalInput.logGoalInput(progInput, this.goal_id).subscribe(result => {
-      console.log("results:",result);
+  logGoalProgress() {
+    if(this.progInput === 0) {
+      //console.log('invalid')
+      return;
+    }
+    //console.log("log entry value:", progInput);
+    this.goalInput.logGoalInput(this.progInput, this.goal_id).subscribe(result => {
+      //console.log("results:",result);
     });
+    this.progInput = 0;
   }
 
   //get progress log
   getProgressLog() {
      this.goalInput.getGoalLog(this.goal_id).subscribe(result => {
-      console.log("progres log:", result);  
+      //console.log("progres log:", result);  
       this.progressLog = result;   
       });
       return this.progressLog;
@@ -149,21 +134,4 @@ export class GoalDetailComponent {
    capitalizeFirstLetter(text: string){
     return text.charAt(0).toUpperCase() + text.slice(1);
   }
-
-  //method for routing to the dashboard
-  dashRoute(){
-    console.log("routing to dashboard");
-    this.router.navigate(['/dashboard']);
-  }
-
-  //method for routing to the profile page
-  profileRoute(){
-    console.log("routing to user-profile");
-    this.router.navigate(['/user-profile']);
-  }
-
-  stats(){
-    alert("stats page does not yet exist");
-  }
-  
 }

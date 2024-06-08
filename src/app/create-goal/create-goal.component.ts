@@ -17,13 +17,10 @@ export class CreateGoalComponent {
   lastName: string = "";
   email: string = "";
 
-  constructor(private goalService: GoalService, private router: Router, private userService: UserService) {
-
-  }
+  constructor(private goalService: GoalService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
     this.setUserData();
-
   }
 
   //pull user data in from local storage and sets local variable values
@@ -42,26 +39,15 @@ export class CreateGoalComponent {
  
   async createNewGoal(addGoal: Goal) {
     this.newGoal = addGoal;
-    await this.goalService.createGoal(this.newGoal).subscribe(response => {
-      console.log(response);
+    this.goalService.createGoal(this.newGoal).subscribe(response => {
+      //console.log(response);
     })
     this.dashRoute();
   }
 
   //method for routing to the dashboard
   async dashRoute(){
-    console.log("routing to dashboard");
+    //console.log("routing to dashboard");
     this.router.navigate(['/dashboard']);
   }
-
-  //method for routing to the profile page
-  profileRoute(){
-    console.log("routing to user-profile");
-    this.router.navigate(['/user-profile']);
-  }
-
-  stats(){
-    alert("stats page does not yet exist");
-  }
-
 }

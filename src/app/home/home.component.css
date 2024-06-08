@@ -9,7 +9,7 @@
 }
 
 mat-grid-tile.top-image {
-    background-image: url('src/app/home/images/full_logo.png');
+    background-image: url('./full_logo.png');
     background-size: 60%;
     background-repeat: no-repeat;
     background-position-y: center;
@@ -37,9 +37,8 @@ mat-panel-title {
 
 .low-third-img {
     background-image: url('https://plus.unsplash.com/premium_vector-1714230285176-f431939a1ce4?bg=FFFFFF&q=80&w=2490&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    /* background-image: url('https://plus.unsplash.com/premium_vector-1716909239158-ccbb20f10009?bg=FFFFFF&q=80&w=2360&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
     background-repeat: no-repeat;
-    background-size:60%;
+    background-size:55%;
     background-position-x: center;
     opacity: .8;
 }
@@ -59,3 +58,7 @@ mat-grid-list {
     --mat-grid-list-cols: var(--grid-cols);
     --mat-grid-list-row-height: var(--grid-row-height);
 }
+
+#signup-link:hover {
+    cursor: pointer;
+} 

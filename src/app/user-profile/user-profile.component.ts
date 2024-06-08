@@ -18,7 +18,6 @@ export class UserProfileComponent {
   
   ngOnInit(): void{
     this.setUserData();
-    
   }
 
   //pull user data in from local storage and sets local variable values
@@ -37,24 +36,7 @@ export class UserProfileComponent {
     return text.charAt(0).toUpperCase() + text.slice(1);
   }
 
-  //method for routing to the dashboard
-  dashRoute(){
-    console.log("routing to dashboard");
-    this.router.navigate(['/dashboard']);
-  }
-
-  //method for routing to the profile page
-  profileRoute(){
-    console.log("routing to user-profile");
-    this.router.navigate(['/user-profile']);
-  }
-
-  stats(){
-    alert("stats page does not yet exist");
-  }
-
   noSave(){
     alert("This operation is currently under development.\nThank you for your patience.")
-  }
-  
+  } 
 }

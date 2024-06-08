@@ -6,12 +6,13 @@
     border-radius: 10px;
     padding-left: 10px;
     font-family: "Fjord One", serif;
-    
 }
+
 #quote-text{
     padding-top: 1%;
     padding-left: 2%;
 }
+
 #quote-author {
     text-align: right;
     padding-right:5%;
@@ -32,13 +33,15 @@
 .main-content {
     font-family: 'Finlandica', 'sans-serif';
 }
+
 .goal-head {
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
     padding: 0 5%;
-    /* flex: 1 1 auto; */
+    text-align: center;
 }
+
 #goal-heading {
     color:#004d40;
     background-color: #e0f2f1;
@@ -47,27 +50,28 @@
     font-size: xx-large;
 }
 #new-btn {
-    width: 60px;
-    align-items: right;
     font-size: xx-large;
     font-weight: 600;
+    text-align: center;
 }
 
 .goal-list {
     margin: 0px;
     padding: 0px;
-    
 }
+
 .responsive-grid {
     --grid-cols: 1;
     --grid-row-height: 1:1;
 }
+
 @media (min-width:600px){
     .responsive-grid {
         --grid-col:2;
         --grid-row-height: 1:1;
     }
 }
+
 mat-grid-list {
     --mat-grid-list-cols: var(--grid-cols);
     --mat-grid-list-row-height: var(--grid-row-height);
@@ -82,28 +86,36 @@ mat-grid-list {
     color: #004d40;
     opacity: 0.95;
 }
+
+.goal-title:hover {
+    cursor: pointer;
+}
+
 .goal-title {
     font-size: x-large;
     display: flex;
     justify-content: space-between;
 }
+
 #delete-btn {
     width: 10px;
     height: 10px;
 }
+
 mat-card-content.goal-progress {
     font-family: 'Fjord One', 'serif';
     margin: 5px auto;
     width: 90%;
     text-align: center;
 }
+
 .fab-small {
     width: 35px;
     height: 35px;
     font-size: 10px;
-  }
+}
 
-  #divChart {
+#divChart {
     display:block;
     width: 300px;
     height: 200px;

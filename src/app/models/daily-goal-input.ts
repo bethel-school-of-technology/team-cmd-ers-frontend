@@ -1,5 +1,3 @@
-
-
 export class DailyGoalInput {
 
     inputId?: number;
@@ -8,11 +6,9 @@ export class DailyGoalInput {
     progressInput?: number;
 
     constructor( goalid?: number, inputid?: number, date?: Date, progInput?: number) {
-
         this.inputId = inputid;
         this.goalId = goalid;
         this.date = date;
-        this.progressInput = progInput;
-        
+        this.progressInput = progInput;  
     }
 }

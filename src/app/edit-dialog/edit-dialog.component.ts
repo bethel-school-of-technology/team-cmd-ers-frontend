@@ -31,13 +31,13 @@ export interface EditsData {
 })
 export class EditDialogComponent {
 
+  //variables for editing the goal name and description
   name?: string;
   description?: string;
 
+  //variables for checking for valid input in the input fields
   invalidName = new FormControl('', [Validators.required]);
   invalidDescription = new FormControl('', [Validators.required]);
-
-
 
   constructor(public dialogRef: MatDialogRef<EditDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
@@ -47,6 +47,7 @@ export class EditDialogComponent {
     this.setData();
   }
 
+  //used to close the dialog window - 'close' button
   onClose(): void {
     this.dialogRef.close();
   }
@@ -71,6 +72,7 @@ export class EditDialogComponent {
     return this.invalidDescription.hasError('required') ? 'Description is required' : '';
   }
 
+  //sets or updates the local data values
   setData(){
     this.name = this.data.name;
     this.description = this.data.description;
