@@ -25,8 +25,8 @@
                 <mat-card-subtitle class="fjord-one-1">Record Today's Numbers:</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <form #progForm="ngForm" class="sub-btn" (ngSubmit)="logGoalProgress(progForm)">
-                    <input type="number" name="todaysNumbers"  placeholder="daily number(s)" ngModel>
+                <form class="sub-btn" (ngSubmit)="logGoalProgress()">
+                    <input type="number" name="todaysNumbers"  placeholder="Daily Number" [(ngModel)]="progInput">
                     <button type="submit" class="btn " mat-raised-button color="accent" >submit</button>
                 </form>
             </mat-card-content>
