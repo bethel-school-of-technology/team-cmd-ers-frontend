@@ -74,7 +74,7 @@ import { DatePipe } from '@angular/common';
     MatInputModule,
     MatFormFieldModule,
     MatProgressBarModule,
-    MatExpansionModule,
+    MatExpansionModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
