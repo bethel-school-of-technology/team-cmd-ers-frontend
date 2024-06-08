@@ -46,14 +46,11 @@ export class DashboardComponent implements OnInit {
     this.localStorageCheck('token');
     await this.setUserData();
     this.goalService.getAllGoals().subscribe(response => {
-      console.log(response);
+      //console.log(response);
       this.userGoals = response;
     })
     
-    await this.getDailyQuote();
-
-    
-    
+    this.getDailyQuote();
   }
 
   //add an event listener to get the window size
@@ -95,7 +92,7 @@ export class DashboardComponent implements OnInit {
       localStorage.removeItem('dailyQuote');
       localStorage.removeItem('dailyQuoteAuthor');
       localStorage.removeItem('dailyQuoteDate');
-      console.log('Removed daily quote items');
+      //console.log('Removed daily quote items');
     }
 
     if(this.localStorageCheck('dailyQuote') && this.localStorageCheck('dailyQuoteAuthor')){
@@ -151,7 +148,7 @@ export class DashboardComponent implements OnInit {
       //if any progressInput value is equal or greater than max, stop and set ratio to 1
       if (num >= max){
         // console.log(num);
-        return 1;
+        return max;
       }  //otherwise sum up the values for progressInput 
       else {
         // console.log(`adding ${num}`)
@@ -171,24 +168,4 @@ export class DashboardComponent implements OnInit {
       this.ngOnInit();
     })
   }
-  
-
-  //method for routing to the dashboard
-  dashRoute(){
-    console.log("routing to dashboard");
-    this.router.navigate(['/dashboard']);
-  }
-
-  //method for routing to the profile page
-  profileRoute(){
-    console.log("routing to user-profile");
-    this.router.navigate(['/user-profile']);
-  }
-
-  stats(){
-    alert("stats page does not yet exist");
-  }
-
-
-  
 }

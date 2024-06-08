@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
 
-  // newUser: User = {};
   newUser: User = new User();
 
   public email: string = '';
@@ -18,21 +17,15 @@ export class SignUpComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   signUp() {
-
     this.userService.signUp(this.newUser).subscribe(() => {
         window.alert("User Registered Successfully");
-        // this.router.navigate(['signin']);
         this.router.navigate(['home']);
     }, error => {
         window.alert("User Registration Error");
-        console.log('Error: ', error)
+        //console.log('Error: ', error)
     });
   }
-
-  
-
 }

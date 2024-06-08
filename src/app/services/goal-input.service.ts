@@ -32,7 +32,7 @@ export class GoalInputService {
     let goalProg = new DailyGoalInput;
     goalProg.goalId = goalId;
     goalProg.progressInput = progressInput;
-    console.log("log service:",goalProg.goalId, "|",goalProg.progressInput)
+    //console.log("log service:",goalProg.goalId, "|",goalProg.progressInput)
     return this.http.post<DailyGoalInput>(this.goalInputUrl+`${goalId}`, goalProg, {headers:reqHeaders});
   }
   

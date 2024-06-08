@@ -24,8 +24,6 @@ export class DailyInputsChartComponent implements OnInit{
 
   constructor(private inputService: GoalInputService, private activeRoute:ActivatedRoute, private datepipe:DatePipe) {
     Chart.register(...registerables);
-    // this.goalProgress = 
-    
   }
 
   ngOnInit(){

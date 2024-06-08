@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Goal } from '../models/goal';
 import { Observable } from 'rxjs';
-// import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,6 @@ export class GoalService {
 
   constructor(private http:HttpClient) { }
 
-  //at some point all goals will be associated with a specific userId
   //get all goals by userId
   getAllGoals(): Observable<Goal[]> {
     let reqHeaders = {
@@ -43,9 +41,6 @@ export class GoalService {
     return this.http.put<Goal>(`${this.goalUrl}/${editedGoal.id}`, editedGoal,{headers:reqHeaders});
     }
   }
-  // updateGoal(editId?: number, editedGoal?: Goal): Observable<Goal>{
-  //   return this.http.put<Goal>(`${this.goalUrl}/${editId}`, editedGoal);
-  // }
 
   //delete a goal
   deleteGoal(deleteId?: number):Observable<any>{

@@ -35,11 +35,11 @@ export class GeneralNavComponent {
     // console.log(this.email, this.password);
     
         this.userService.signIn(this.email, this.password).subscribe((response:any) => {
-          console.log("response", response);
+          //console.log("response", response);
           this.app.checkForUserToken();
           this.router.navigateByUrl('/dashboard');
         }, error => {
-          console.log('Error: ', error);
+          //console.log('Error: ', error);
           window.alert('Unsuccessful Login');
           // this.router.navigateByUrl('/home');
         });

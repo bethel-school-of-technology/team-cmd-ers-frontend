@@ -25,7 +25,6 @@
                         </button>
                     </mat-card-header>
                     <mat-card-content class="goal-progress" routerLink="/goal-detail/{{g.id}}">
-                        <!-- place code for pie chart here -->
                         <p>Progress:   {{calcProgress(g)}}%</p>
                         
                         <mat-progress-bar mode="determinate" value="{{calcProgress(g)}}"></mat-progress-bar>
@@ -35,12 +34,5 @@
                 </mat-card>
             </mat-grid-tile>
         </mat-grid-list>
-
-        <!-- HERE is the chart
-
-                        <div id="divChart">
-                            <canvas id="inputsChart"></canvas>
-                        </div>
-         -->
     </div>
 </div>
