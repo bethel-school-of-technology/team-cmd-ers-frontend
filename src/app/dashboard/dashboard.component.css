@@ -39,6 +39,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding: 0 5%;
+    text-align: center;
 }
 
 #goal-heading {
@@ -49,16 +50,14 @@
     font-size: xx-large;
 }
 #new-btn {
-    width: 60px;
-    align-items: right;
     font-size: xx-large;
     font-weight: 600;
+    text-align: center;
 }
 
 .goal-list {
     margin: 0px;
     padding: 0px;
-    
 }
 
 .responsive-grid {
@@ -86,6 +85,10 @@ mat-grid-list {
     border-radius: 10px;
     color: #004d40;
     opacity: 0.95;
+}
+
+.goal-card:hover {
+    cursor: pointer;
 }
 
 .goal-title {
