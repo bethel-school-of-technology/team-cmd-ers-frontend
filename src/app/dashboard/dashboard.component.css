@@ -87,7 +87,7 @@ mat-grid-list {
     opacity: 0.95;
 }
 
-.goal-card:hover {
+.goal-title:hover {
     cursor: pointer;
 }
 
