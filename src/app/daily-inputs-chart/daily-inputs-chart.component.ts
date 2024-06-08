@@ -31,7 +31,7 @@ export class DailyInputsChartComponent implements OnInit{
   ngOnInit(){
     this.goal_id = parseInt(this.activeRoute.snapshot.paramMap.get("goalId") ?? '0');
     this.inputService.getGoalLog(this.goal_id).subscribe(result => {
-      console.log("progres log:", result);  
+      //console.log("progres log:", result);  
       this.goalProgress = result;  
       this.pullOutData(this.goalProgress) 
       });
@@ -41,7 +41,7 @@ export class DailyInputsChartComponent implements OnInit{
   refreshChart(){
     this.progressChart?.destroy();
     this.inputService.getGoalLog(this.goal_id).subscribe(result => {
-      console.log("progres log:", result);  
+      //console.log("progres log:", result);  
       this.goalProgress = result;  
       this.pullOutData(this.goalProgress) 
       });
@@ -65,7 +65,7 @@ export class DailyInputsChartComponent implements OnInit{
       }
       if (data[i].progressInput) {
         this.inputs.push(data[i].progressInput);
-        console.log(this.inputs);
+        //console.log(this.inputs);
       } else {
         console.error("progressInput is undefined for data at index", i);
       }
@@ -74,8 +74,8 @@ export class DailyInputsChartComponent implements OnInit{
     }
 
         
-    console.log(this.dates);
-    console.log(this.inputs);
+    //console.log(this.dates);
+    //console.log(this.inputs);
     this.buildChart();
     
   }
@@ -87,9 +87,6 @@ export class DailyInputsChartComponent implements OnInit{
     if(this.progressChart){
       this.progressChart.destroy;
     }
-
-    var dateLabels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];  //replace with dates
-    var dataVals = [12, 19, 3, 5, 2, 3];                                      //replace with inputs
 
     this.progressChart = new Chart('inputsChart', {
           type: 'bar',
@@ -114,19 +111,3 @@ export class DailyInputsChartComponent implements OnInit{
         });
   }
 }
-
-  // ngAfterViewInit(): void {
-    
-
-    
-    
-  // }
-
-  // ngOnDestroy() {
-  //   if(this.chart){
-  //     this.chart.destroy();
-  //   }
-  // }
-
-  
-
