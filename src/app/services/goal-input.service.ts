@@ -45,7 +45,6 @@ export class GoalInputService {
   }
 
  
-
   //retrieve entries for the last week
 
   //retrieve entries for the last month

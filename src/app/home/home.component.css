@@ -58,3 +58,7 @@ mat-grid-list {
     --mat-grid-list-cols: var(--grid-cols);
     --mat-grid-list-row-height: var(--grid-row-height);
 }
+
+#signup-link:hover {
+    cursor: pointer;
+} 
