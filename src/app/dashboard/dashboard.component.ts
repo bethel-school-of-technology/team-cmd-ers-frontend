@@ -165,9 +165,9 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteGoal(id?: number){
-    console.log(id);
+    // console.log(id);
     this.goalService.deleteGoal(id).subscribe(response => {
-      console.log(response);
+      // console.log(response);
       this.ngOnInit();
     })
   }
